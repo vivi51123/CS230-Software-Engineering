@@ -5,7 +5,7 @@
 - Kunal Patel
 - Nathan Pilbrough
 - Tzu-Wei Vivi Chuang (vivi51123@gmail.com)
-- Zhengshuang Ren
+- Zhengshuang Ren (zhengshuangren@gmail.com)
 
 ## Motivation & Problem Definition
 - Does this report sufficiently describe motivation of this project?
