@@ -2,7 +2,7 @@
 Project Discussion - https://docs.google.com/document/d/1Zne2CpODO8YvkSf5-h1U4SRt4LsK8e9dAyFUjOqwrHU/edit
 
 ## Members
-- Greg Cusack
+- Greg Cusack (gregcusack@ucla.edu)
 - Kunal Patel
 - Nathan Pilbrough
 - Tzu-Wei Vivi Chuang (vivi51123@gmail.com)
