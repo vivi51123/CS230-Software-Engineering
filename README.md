@@ -1,4 +1,5 @@
 # UCLA Spring 2017 CS230 Software Engineering
+Project Discussion - https://docs.google.com/document/d/1Zne2CpODO8YvkSf5-h1U4SRt4LsK8e9dAyFUjOqwrHU/edit
 
 ## Members
 - Greg Cusack
@@ -32,8 +33,7 @@
 - an evaluation of Eclipse refactoring engines
 - an assessment of false positives in FindBug 
 - an evaluation of a code clone detector. 
-- a comparative evaluation of code review tools 
-- model differencing for labview models. 
+- a comparative evaluation of code review tools model differencing for labview models. 
 - a new change impact analysis for UML models
 - an assessment of a performance profiling tool.
 - an empirical study of code clones in ocaml
