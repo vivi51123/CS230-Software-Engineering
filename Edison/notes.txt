@@ -1,0 +1,21 @@
+Running Valgrind on the Edison requires a few extra steps
+
+Run the following steps
+1.) opkg install valgrind  //you may get an error here regarding a new line.
+If so, do the following:
+1a.) cd /var/lib/opkg //Look for a file called iotdk-intel or intel-iotdk
+1b.) vim iotdk-intel
+1c.) //Go to end of file and add a new line (idk why this is an error) but
+should work now (run opkg install valgrind again)
+
+2.) opkg install libc6-dbg //can probably skim this step
+3.) opkg install libc6 --force-reinstall //don't know why it has to be
+reinstalled but will likely need to be.  had to be for my Edison
+
+Now you're good to go to run Valgrind (memcheck)
+
+Initial observation:
+After running a simple memory leak test, I noticed that Valgrind on the Edison
+takes substancially longer to run than on a laptop (which is expected).  But
+long enough on a simple program (one possible mem leak, 41 LOC) that
+scalability, is likely to become a big issue.
