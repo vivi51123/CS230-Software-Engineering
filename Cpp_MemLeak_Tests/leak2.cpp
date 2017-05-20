@@ -3,6 +3,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <sys/timeb.h>
+#include <cstring>
 using namespace std;
 
 int getMilliCount(){
@@ -19,24 +20,56 @@ int getMilliSpan(int nTimeStart){
 	return nSpan;
 }
 
-
-void createLeak()
+class MemLeak
 {
+public:
+	MemLeak();
+
+	~MemLeak();
+
+	void createMemLeak(char	*p_memptr);
+
+private:
 	char	*memptr;
-	memptr = new char [100];
+};
+
+MemLeak::MemLeak()
+{
+	memptr = NULL;
+}
+
+MemLeak::~MemLeak()
+{
+	if (memptr != NULL)
+		delete [] memptr;
+}
+
+void MemLeak::createMemLeak(char	*p_memptr)
+{
 	if (memptr != NULL)
 	{
-		cout << "memptr is not Null" << endl;
-	}else{
-		cout << "memptr is Null" << endl;
+		delete [] memptr;
+		memptr = NULL;
 	}
-	//delete [] memptr; 
+
+	size_t	len;
+
+	len = strlen(p_memptr);
+	memptr = new char [len + 1];
+	if (memptr != NULL)
+	{
+		strcpy(memptr, p_memptr);
+	}
 }
+
+
  
 int main(){
-	cout << "Leak 1 test" << endl;
+	cout << "Leak 2 test" << endl;
 	int start = getMilliCount();
-	createLeak();
+	MemLeak m;
+	m.createMemLeak("Foo Bar");
+	m.createMemLeak("Foo Bar Foo Bar");
 	int milliSecondsElapsed = getMilliSpan(start);
 	cout << "Runtime: " <<  milliSecondsElapsed << endl; 
 return 0;
