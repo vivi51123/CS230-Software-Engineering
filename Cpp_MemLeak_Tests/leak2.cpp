@@ -46,11 +46,11 @@ MemLeak::~MemLeak()
 
 void MemLeak::createMemLeak(char	*p_memptr)
 {
-	if (memptr != NULL)
+	/*if (memptr != NULL)
 	{
 		delete [] memptr;
 		memptr = NULL;
-	}
+	}*/
 
 	size_t	len;
 
@@ -65,7 +65,13 @@ void MemLeak::createMemLeak(char	*p_memptr)
 
  
 int main(){
-	cout << "Leak 2 test" << endl;
+	cout << "Leak 2 test: A pointer points to one memory location and is then redirected" << endl;
+	cout << "Expected output:" << endl;
+	cout << "definitely lost: 8 bytes in 1 blocks" << endl;
+	cout << "indirectly lost: 0 bytes in 0 blocks" << endl;
+	cout << "  possibly lost: 0 bytes in 0 blocks" << endl;
+	cout << "still reachable: 0 bytes in 0 blocks"<< endl;
+	cout << "     suppressed: 0 bytes in 0 blocks" << endl;
 	int start = getMilliCount();
 	MemLeak m;
 	m.createMemLeak("Foo Bar");

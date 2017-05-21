@@ -3,7 +3,6 @@
 #include <ctime>
 #include <cstdlib>
 #include <sys/timeb.h>
-#include <cstring>
 using namespace std;
 
 int getMilliCount(){
@@ -20,63 +19,33 @@ int getMilliSpan(int nTimeStart){
         return nSpan;
 }
 
-class MemLeak
+
+void createLeak()
 {
-public:
-        MemLeak();
-
-        ~MemLeak();
-
-        void createMemLeak(char *p_memptr);
-
-private:
-        char    *memptr;
-};
-
-MemLeak::MemLeak()
-{
-        memptr = NULL;
-}
-
-MemLeak::~MemLeak()
-{
-        if (memptr != NULL)
-                delete [] memptr;
-}
-
-void MemLeak::createMemLeak(char        *p_memptr)
-{
-        if (memptr != NULL)
+        char **memptrarr; 
+        memptrarr = new char *[2];
+        memptrarr[0] = new char [100];
+        memptrarr[1] = new char [24];
+        if (memptrarr[0] != NULL)
         {
-                delete [] memptr;
-                memptr = NULL;
+                cout << "memptr is not Null" << endl;
+        }else{
+                cout << "memptr is Null" << endl;
         }
-
-        size_t  len;
-
-        len = strlen(p_memptr);
-        memptr = new char [len + 1];
-        if (memptr != NULL)
-        {
-                strcpy(memptr, p_memptr);
-        }
-        memptr++;
+        //delete [] memptrarr; 
+        //delete [] *memptrptr;
 }
-
-
  
 int main(){
-        cout << "Leak 4 test: Internal pointer test" << endl;
+        cout << "Leak 5 test: Testing pointer to pointer memory allocation" << endl;
         cout << "Expected output:" << endl;
         cout << "definitely lost: 8 bytes in 1 blocks" << endl;
-        cout << "indirectly lost: 0 bytes in 0 blocks" << endl;
+        cout << "indirectly lost: 124 bytes in 2 blocks" << endl;
         cout << "  possibly lost: 0 bytes in 0 blocks" << endl;
         cout << "still reachable: 0 bytes in 0 blocks"<< endl;
         cout << "     suppressed: 0 bytes in 0 blocks" << endl;
         int start = getMilliCount();
-        MemLeak m;
-        m.createMemLeak("Foo Bar");
+        createLeak();
         int milliSecondsElapsed = getMilliSpan(start);
         cout << "Runtime: " <<  milliSecondsElapsed << endl; 
 return 0;
-}

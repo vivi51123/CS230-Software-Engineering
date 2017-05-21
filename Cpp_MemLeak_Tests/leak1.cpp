@@ -34,7 +34,14 @@ void createLeak()
 }
  
 int main(){
-	cout << "Leak 1 test" << endl;
+	cout << "Leak 1 test: Simple test, memory is allocated and not released" << endl;
+	cout << "Expected output:" << endl;
+	cout << "definitely lost: 100 bytes in 1 blocks" << endl;
+	cout << "indirectly lost: 0 bytes in 0 blocks" << endl;
+	cout << "  possibly lost: 0 bytes in 0 blocks" << endl;
+	cout << "still reachable: 0 bytes in 0 blocks"<< endl;
+	cout << "     suppressed: 0 bytes in 0 blocks" << endl;
+
 	int start = getMilliCount();
 	createLeak();
 	int milliSecondsElapsed = getMilliSpan(start);
