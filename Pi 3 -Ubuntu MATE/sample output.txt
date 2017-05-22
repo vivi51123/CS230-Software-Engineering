@@ -1,0 +1,32 @@
+kunal@kunal-desktop:~/Desktop$ valgrind --leak-check=yes ./test
+==4787== Memcheck, a memory error detector
+==4787== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==4787== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==4787== Command: ./test
+==4787== 
+==4787== Invalid write of size 4
+==4787==    at 0x1040E: f (in /home/kunal/Desktop/test)
+==4787==  Address 0x4974050 is 0 bytes after a block of size 40 alloc'd
+==4787==    at 0x483E380: malloc (vg_replace_malloc.c:299)
+==4787==    by 0x10403: f (in /home/kunal/Desktop/test)
+==4787== 
+==4787== 
+==4787== HEAP SUMMARY:
+==4787==     in use at exit: 40 bytes in 1 blocks
+==4787==   total heap usage: 1 allocs, 0 frees, 40 bytes allocated
+==4787== 
+==4787== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==4787==    at 0x483E380: malloc (vg_replace_malloc.c:299)
+==4787==    by 0x10403: f (in /home/kunal/Desktop/test)
+==4787== 
+==4787== LEAK SUMMARY:
+==4787==    definitely lost: 40 bytes in 1 blocks
+==4787==    indirectly lost: 0 bytes in 0 blocks
+==4787==      possibly lost: 0 bytes in 0 blocks
+==4787==    still reachable: 0 bytes in 0 blocks
+==4787==         suppressed: 0 bytes in 0 blocks
+==4787== 
+==4787== For counts of detected and suppressed errors, rerun with: -v
+==4787== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+kunal@kunal-desktop:~/Desktop$ 
+
