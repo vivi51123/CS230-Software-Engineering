@@ -14,19 +14,19 @@ run: run1 run2 run3 run4 run5
 #$(CXX) -o ($PROG) $(OBJS)
 
 leak1:
-	$(CXX) $(CXXFLAGS) -o leak1 leak1.cpp
+	$(CXX) -o $(CXXFLAGS) leak1 leak1.cpp
 
 leak2:
-	$(CXX) $(CXXFLAGS) -o leak2 leak2.cpp
+	$(CXX) -o $(CXXFLAGS) leak1 leak1.cpp
 
 leak3:
-	$(CXX)  $(CXXFLAGS) -o leak3 leak3.cpp
+	$(CXX) -o $(CXXFLAGS) leak1 leak1.cpp
 
 leak4:
-	$(CXX)  $(CXXFLAGS) -o leak4 leak4.cpp
+	$(CXX) -o $(CXXFLAGS) leak1 leak1.cpp
 
 leak5:
-	$(CXX)  $(CXXFLAGS) -o leak5 leak5.cpp
+	$(CXX) -o $(CXXFLAGS) leak1 leak1.cpp
 
 run1:
 	$(RUNFLAG) ./leak1
