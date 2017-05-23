@@ -1,0 +1,28 @@
+kunal@kunal-desktop:~/Desktop/CS230-Software-Engineering-master/Pi 2 -Wheezy$ g++ leakage.cpp -o leakagePi3
+kunal@kunal-desktop:~/Desktop/CS230-Software-Engineering-master/Pi 2 -Wheezy$ valgrind --leak-check=yes ./leakagePi3 
+==25310== Memcheck, a memory error detector
+==25310== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==25310== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==25310== Command: ./leakagePi3
+==25310== 
+==25310== 
+==25310== HEAP SUMMARY:
+==25310==     in use at exit: 20,624 bytes in 2 blocks
+==25310==   total heap usage: 2 allocs, 0 frees, 20,624 bytes allocated
+==25310== 
+==25310== 400 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==25310==    at 0x483F2AC: operator new[](unsigned int) (vg_replace_malloc.c:416)
+==25310==    by 0x1051D: main (in /home/kunal/Desktop/CS230-Software-Engineering-master/Pi 2 -Wheezy/leakagePi3)
+==25310== 
+==25310== LEAK SUMMARY:
+==25310==    definitely lost: 400 bytes in 1 blocks
+==25310==    indirectly lost: 0 bytes in 0 blocks
+==25310==      possibly lost: 0 bytes in 0 blocks
+==25310==    still reachable: 20,224 bytes in 1 blocks
+==25310==         suppressed: 0 bytes in 0 blocks
+==25310== Reachable blocks (those to which a pointer was found) are not shown.
+==25310== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==25310== 
+==25310== For counts of detected and suppressed errors, rerun with: -v
+==25310== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
