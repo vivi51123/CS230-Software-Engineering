@@ -1,0 +1,43 @@
+kunal@kunal-desktop:~/Desktop/CS230-Software-Engineering-master/valgrind_example$ g++ memLeak.cpp -o memLeakPi3
+kunal@kunal-desktop:~/Desktop/CS230-Software-Engineering-master/valgrind_example$ valgrind --leak-check=yes ./memLeakPi3 
+==1398== Memcheck, a memory error detector
+==1398== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1398== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1398== Command: ./memLeakPi3
+==1398== 
+disInstr(arm): unhandled instruction: 0xF1010200
+                 cond=15(0xF) 27:20=16(0x10) 4:4=0 3:0=0(0x0)
+==1398== valgrind: Unrecognised instruction at address 0x48596f4.
+==1398==    at 0x48596F4: ??? (in /usr/lib/arm-linux-gnueabihf/libarmmem.so)
+==1398== Your program just tried to execute an instruction that Valgrind
+==1398== did not recognise.  There are two possible reasons for this.
+==1398== 1. Your program has a bug and erroneously jumped to a non-code
+==1398==    location.  If you are running Memcheck and you just saw a
+==1398==    warning about a bad jump, it's probably your program's fault.
+==1398== 2. The instruction is legitimate but Valgrind doesn't handle it,
+==1398==    i.e. it's Valgrind's fault.  If you think this is the case or
+==1398==    you are not sure, please let us know and we'll try to fix it.
+==1398== Either way, Valgrind will now raise a SIGILL signal which will
+==1398== probably kill your program.
+==1398== 
+==1398== Process terminating with default action of signal 4 (SIGILL)
+==1398==  Illegal opcode at address 0x48596F4
+==1398==    at 0x48596F4: ??? (in /usr/lib/arm-linux-gnueabihf/libarmmem.so)
+Age: ==1398== 
+==1398== HEAP SUMMARY:
+==1398==     in use at exit: 20,252 bytes in 2 blocks
+==1398==   total heap usage: 3 allocs, 1 frees, 21,276 bytes allocated
+==1398== 
+==1398== LEAK SUMMARY:
+==1398==    definitely lost: 0 bytes in 0 blocks
+==1398==    indirectly lost: 0 bytes in 0 blocks
+==1398==      possibly lost: 0 bytes in 0 blocks
+==1398==    still reachable: 20,252 bytes in 2 blocks
+==1398==         suppressed: 0 bytes in 0 blocks
+==1398== Reachable blocks (those to which a pointer was found) are not shown.
+==1398== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1398== 
+==1398== For counts of detected and suppressed errors, rerun with: -v
+==1398== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Illegal instruction (core dumped)
+
