@@ -48,4 +48,5 @@ int main(){
         createLeak();
         int milliSecondsElapsed = getMilliSpan(start);
         cout << "Runtime: " <<  milliSecondsElapsed << endl; 
-return 0;
+        return 0;
+}

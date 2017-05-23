@@ -1,0 +1,103 @@
+//Compile
+$ g++ leakage.cpp -o leakage
+or
+$ g++ -g -Wall -o memLeak memLeak.cpp
+
+//Run valgrind memcheck
+//leakage.cpp
+$ valgrind --leak-check=full ./leakage
+==21310== HEAP SUMMARY:
+==21310==     in use at exit: 400 bytes in 1 blocks
+==21310==   total heap usage: 1 allocs, 0 frees, 400 bytes allocated
+==21310== 
+==21310== 400 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==21310==    at 0x4834D54: operator new[](unsigned int) (vg_replace_malloc.c:343)
+==21310==    by 0x84AF: main (in /home/pi/Desktop/leakage)
+==21310== 
+==21310== LEAK SUMMARY:
+==21310==    definitely lost: 400 bytes in 1 blocks
+==21310==    indirectly lost: 0 bytes in 0 blocks
+==21310==      possibly lost: 0 bytes in 0 blocks
+==21310==    still reachable: 0 bytes in 0 blocks
+==21310==         suppressed: 0 bytes in 0 blocks
+==21310== 
+==21310== For counts of detected and suppressed errors, rerun with: -v
+==21310== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 19 from 6)
+
+//memLeak.cpp
+==21542== valgrind: Unrecognised instruction at address 0x4843588.
+==21542==    at 0x4843588: ??? (in /usr/lib/arm-linux-gnueabihf/libcofi_rpi.so)
+==21542== Your program just tried to execute an instruction that Valgrind
+==21542== did not recognise.  There are two possible reasons for this.
+==21542== 1. Your program has a bug and erroneously jumped to a non-code
+==21542==    location.  If you are running Memcheck and you just saw a
+==21542==    warning about a bad jump, it's probably your program's fault.
+==21542== 2. The instruction is legitimate but Valgrind doesn't handle it,
+==21542==    i.e. it's Valgrind's fault.  If you think this is the case or
+==21542==    you are not sure, please let us know and we'll try to fix it.
+==21542== Either way, Valgrind will now raise a SIGILL signal which will
+==21542== probably kill your program.
+==21542== 
+==21542== Process terminating with default action of signal 4 (SIGILL)
+==21542==  Illegal opcode at address 0x4843588
+==21542==    at 0x4843588: ??? (in /usr/lib/arm-linux-gnueabihf/libcofi_rpi.so)
+Age: ==21542== 
+==21542== HEAP SUMMARY:
+==21542==     in use at exit: 26 bytes in 2 blocks
+==21542==   total heap usage: 3 allocs, 1 frees, 46 bytes allocated
+==21542== 
+==21542== 18 bytes in 1 blocks are possibly lost in loss record 2 of 2
+==21542==    at 0x48353C4: operator new(unsigned int) (vg_replace_malloc.c:282)
+==21542==    by 0x4907953: std::string::_Rep::_S_create(unsigned int, unsigned int, std::allocator<char> const&) (in /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.19)
+==21542== 
+==21542== LEAK SUMMARY:
+==21542==    definitely lost: 0 bytes in 0 blocks
+==21542==    indirectly lost: 0 bytes in 0 blocks
+==21542==      possibly lost: 18 bytes in 1 blocks
+==21542==    still reachable: 8 bytes in 1 blocks
+==21542==         suppressed: 0 bytes in 0 blocks
+==21542== Reachable blocks (those to which a pointer was found) are not shown.
+==21542== To see them, rerun with: --leak-check=full --show-reachable=yes
+==21542== 
+==21542== For counts of detected and suppressed errors, rerun with: -v
+==21542== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 19 from 6)
+Illegal instruction
+
+//memLeakno.cpp
+==21524== valgrind: Unrecognised instruction at address 0x4843588.
+==21524==    at 0x4843588: ??? (in /usr/lib/arm-linux-gnueabihf/libcofi_rpi.so)
+==21524== Your program just tried to execute an instruction that Valgrind
+==21524== did not recognise.  There are two possible reasons for this.
+==21524== 1. Your program has a bug and erroneously jumped to a non-code
+==21524==    location.  If you are running Memcheck and you just saw a
+==21524==    warning about a bad jump, it's probably your program's fault.
+==21524== 2. The instruction is legitimate but Valgrind doesn't handle it,
+==21524==    i.e. it's Valgrind's fault.  If you think this is the case or
+==21524==    you are not sure, please let us know and we'll try to fix it.
+==21524== Either way, Valgrind will now raise a SIGILL signal which will
+==21524== probably kill your program.
+==21524== 
+==21524== Process terminating with default action of signal 4 (SIGILL)
+==21524==  Illegal opcode at address 0x4843588
+==21524==    at 0x4843588: ??? (in /usr/lib/arm-linux-gnueabihf/libcofi_rpi.so)
+Age: ==21524== 
+==21524== HEAP SUMMARY:
+==21524==     in use at exit: 26 bytes in 2 blocks
+==21524==   total heap usage: 3 allocs, 1 frees, 46 bytes allocated
+==21524== 
+==21524== 18 bytes in 1 blocks are possibly lost in loss record 2 of 2
+==21524==    at 0x48353C4: operator new(unsigned int) (vg_replace_malloc.c:282)
+==21524==    by 0x4907953: std::string::_Rep::_S_create(unsigned int, unsigned int, std::allocator<char> const&) (in /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.19)
+==21524== 
+==21524== LEAK SUMMARY:
+==21524==    definitely lost: 0 bytes in 0 blocks
+==21524==    indirectly lost: 0 bytes in 0 blocks
+==21524==      possibly lost: 18 bytes in 1 blocks
+==21524==    still reachable: 8 bytes in 1 blocks
+==21524==         suppressed: 0 bytes in 0 blocks
+==21524== Reachable blocks (those to which a pointer was found) are not shown.
+==21524== To see them, rerun with: --leak-check=full --show-reachable=yes
+==21524== 
+==21524== For counts of detected and suppressed errors, rerun with: -v
+==21524== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 19 from 6)
+Illegal instruction
