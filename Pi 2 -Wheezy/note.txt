@@ -1,0 +1,19 @@
+$sudo apt-get remove --auto-remove valgrind //uninstall valgrind and its dependencies
+
+$sudo apt-get update
+$sudo apt-get upgrade
+
+//download valgrind source code
+//cd to that folder
+$./configure 
+$make
+$make check
+$sudo make install
+$sudo apt-get install libc6-dbg //missing library dependency
+$valgrind --version -> 3.12
+
+Current status 
+//leakage.cpp (definitely lost)
+//memLeak.cpp (still reachable) 
+//simpletest.c (definitely lost)
+//leak1-5.cpp (no errors)
