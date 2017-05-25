@@ -22,22 +22,19 @@ int getMilliSpan(int nTimeStart){
 
 void createLeak()
 {
-        char **memptrarr; 
+        char **memptrarr;
         memptrarr = new char *[2];
         memptrarr[0] = new char [100];
         memptrarr[1] = new char [24];
-        if (memptrarr[0] != NULL)
-        {
-                cout << "memptr is not Null" << endl;
-        }else{
-                cout << "memptr is Null" << endl;
-        }
+
         memptrarr[0]++;
+        //delete [] memptrarr;
         delete [] memptrarr[0];
 }
- 
+
 int main(){
-        cout << "Leak 6 test: Type 6 - Testing pointer to internal pointer memory allocation" << endl;
+        cout << "Leak 6 test: Type 6 - Testing pointer to interior pointer memory allocation" << endl;
+	cout << "NB: program will fail when run independently ie without valgrind" << endl;
         cout << "Expected output:" << endl;
         cout << "definitely lost: 8 bytes in 1 blocks" << endl;
         cout << "indirectly lost: 124 bytes in 2 blocks" << endl;
@@ -47,6 +44,6 @@ int main(){
         int start = getMilliCount();
         createLeak();
         int milliSecondsElapsed = getMilliSpan(start);
-        cout << "Runtime: " <<  milliSecondsElapsed << endl; 
+        cout << "Runtime: " <<  milliSecondsElapsed << "ms"<< endl; 
 return 0;
 }

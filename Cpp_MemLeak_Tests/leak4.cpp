@@ -66,7 +66,8 @@ void MemLeak::createMemLeak(char        *p_memptr)
 
  
 int main(){
-        cout << "Leak 4 test: Internal pointer test" << endl;
+        cout << "Leak 4 test: Interior pointer test. A pointer is assigned to a memory block and then incremented by one" << endl;
+	cout << "NB: The program should fail when run independantly ie without valgrind" << endl;
         cout << "Expected output:" << endl;
         cout << "definitely lost: 8 bytes in 1 blocks" << endl;
         cout << "indirectly lost: 0 bytes in 0 blocks" << endl;
@@ -77,6 +78,7 @@ int main(){
         MemLeak m;
         m.createMemLeak("Foo Bar");
         int milliSecondsElapsed = getMilliSpan(start);
-        cout << "Runtime: " <<  milliSecondsElapsed << endl; 
+        cout << "Runtime: " <<  milliSecondsElapsed << "ms" << endl; 
 return 0;
 }
+

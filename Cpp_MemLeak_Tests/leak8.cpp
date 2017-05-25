@@ -26,12 +26,7 @@ void createLeak()
         memptrarr = new char *[2];
         memptrarr[0] = new char [100];
         memptrarr[1] = new char [24];
-        if (memptrarr[0] != NULL)
-        {
-                cout << "memptr is not Null" << endl;
-        }else{
-                cout << "memptr is Null" << endl;
-        }
+
         memptrarr++;
         memptrarr[0]++;
         delete [] memptrarr; 
@@ -39,7 +34,8 @@ void createLeak()
 }
  
 int main(){
-        cout << "Leak 8 test: Type 8 - Testing internal pointer to pointer memory allocation" << endl;
+        cout << "Leak 8 test: Type 8 - Testing interior pointer to interior pointer memory allocation" << endl;
+	cout << "NB: program will not run independently ie without valgrind" << endl;
         cout << "Expected output:" << endl;
         cout << "definitely lost: 8 bytes in 1 blocks" << endl;
         cout << "indirectly lost: 124 bytes in 2 blocks" << endl;
@@ -49,6 +45,6 @@ int main(){
         int start = getMilliCount();
         createLeak();
         int milliSecondsElapsed = getMilliSpan(start);
-        cout << "Runtime: " <<  milliSecondsElapsed << endl; 
+        cout << "Runtime: " <<  milliSecondsElapsed << "ms" << endl;
 return 0;
 }

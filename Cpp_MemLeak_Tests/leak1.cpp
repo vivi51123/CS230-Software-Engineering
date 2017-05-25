@@ -24,17 +24,11 @@ void createLeak()
 {
 	char	*memptr;
 	memptr = new char [100];
-	if (memptr != NULL)
-	{
-		cout << "memptr is not Null" << endl;
-	}else{
-		cout << "memptr is Null" << endl;
-	}
 	//delete [] memptr; 
 }
  
 int main(){
-	cout << "Leak 1 test: Simple test, memory is allocated and not released" << endl;
+	cout << "Leak 1 test, memory is allocated and not released before the program ends" << endl;
 	cout << "Expected output:" << endl;
 	cout << "definitely lost: 100 bytes in 1 blocks" << endl;
 	cout << "indirectly lost: 0 bytes in 0 blocks" << endl;
@@ -45,6 +39,7 @@ int main(){
 	int start = getMilliCount();
 	createLeak();
 	int milliSecondsElapsed = getMilliSpan(start);
-	cout << "Runtime: " <<  milliSecondsElapsed << endl; 
+	cout << "Runtime: " <<  milliSecondsElapsed << "ms" << endl; 
 return 0;
 }
+

@@ -65,7 +65,7 @@ void MemLeak::createMemLeak(char	*p_memptr)
 
  
 int main(){
-	cout << "Leak 2 test: A pointer points to one memory location and is then redirected" << endl;
+	cout << "Leak 2 test: A pointer is assigned to one memory location and is then redirected without releasing the memory block. The second memory block is deleted" << endl;
 	cout << "Expected output:" << endl;
 	cout << "definitely lost: 8 bytes in 1 blocks" << endl;
 	cout << "indirectly lost: 0 bytes in 0 blocks" << endl;
@@ -77,6 +77,7 @@ int main(){
 	m.createMemLeak("Foo Bar");
 	m.createMemLeak("Foo Bar Foo Bar");
 	int milliSecondsElapsed = getMilliSpan(start);
-	cout << "Runtime: " <<  milliSecondsElapsed << endl; 
+	cout << "Runtime: " <<  milliSecondsElapsed << "ms" << endl; 
 return 0;
 }
+

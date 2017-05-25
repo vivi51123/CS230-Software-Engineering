@@ -41,7 +41,8 @@ memObj::~memObj()
 }
  
 int main(){
-        cout << "Leak 3 test: delete array is used instead of delete [] array" << endl;
+        cout << "Leak 3 test: delete array is used instead of delete [] array." << endl; 
+	cout << "NB: The BBB requires 8 bytes overhead for pointer arrays  therefore definitely lost = No. pointers in array * 4bytes + 8bytes (In this case 48 bytes) " << endl;
         cout << "Expected output:" << endl;
         cout << "definitely lost: 48 bytes in 1 blocks" << endl;
         cout << "indirectly lost: 900 bytes in 9 blocks" << endl;
@@ -56,6 +57,7 @@ int main(){
         //delete [] array;
 
         int milliSecondsElapsed = getMilliSpan(start);
-        cout << "Runtime: " <<  milliSecondsElapsed << endl; 
+        cout << "Runtime: " <<  milliSecondsElapsed << "ms" << endl; 
 return 0;
 }
+
