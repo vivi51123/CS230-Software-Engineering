@@ -1,8 +1,10 @@
-$sudo apt-get remove --auto-remove valgrind //uninstall valgrind and its dependencies
+// Pi3 and Pi2 had problem when running version 3.11 and 3.7 Valgrind. 
+// So Kunal and I remove valgrind and reinstall from source
+// Also tried the 32 bit version 
 
+$sudo apt-get remove --auto-remove valgrind //uninstall valgrind and its dependencies
 $sudo apt-get update
 $sudo apt-get upgrade
-
 //download valgrind source code
 //cd to that folder
 $./configure 
@@ -10,10 +12,12 @@ $make
 $make check
 $sudo make install
 $sudo apt-get install libc6-dbg //missing library dependency
-$valgrind --version -> 3.12
+$valgrind --version //version 3.12
 
 Current status 
 //leakage.cpp (definitely lost)
 //memLeak.cpp (still reachable) 
 //simpletest.c (definitely lost)
-//leak1-5.cpp (no errors)
+//leak1-5.cpp (no errors) <-problem
+
+// We decide to move on to the next stage of the project
