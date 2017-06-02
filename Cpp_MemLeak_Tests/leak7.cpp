@@ -3,6 +3,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <sys/timeb.h>
+#include <chrono>
 using namespace std;
 
 int getMilliCount(){
@@ -41,9 +42,9 @@ int main(){
         cout << "  possibly lost: 0 bytes in 0 blocks" << endl;
         cout << "still reachable: 0 bytes in 0 blocks"<< endl;
         cout << "     suppressed: 0 bytes in 0 blocks" << endl;
-        int start = getMilliCount();
+	auto start = chrono::high_resolution_clock::now();
         createLeak();
-        int milliSecondsElapsed = getMilliSpan(start);
-        cout << "Runtime: " <<  milliSecondsElapsed << "ms" << endl; 
+        auto finish = chrono::high_resolution_clock::now();
+        cout << "Runtime: " << chrono::duration_cast<chrono::nanoseconds>(finish-start).count() << "ns" << endl; 
 return 0;
 }
