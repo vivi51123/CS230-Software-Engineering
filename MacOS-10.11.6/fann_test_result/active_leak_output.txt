@@ -1,0 +1,23 @@
+Mushroom:
+==12089== LEAK SUMMARY:
+==12089==    definitely lost: 0 bytes in 0 blocks
+==12089==    indirectly lost: 0 bytes in 0 blocks
+==12089==      possibly lost: 2,064 bytes in 1 blocks
+==12089==    still reachable: 4,953 bytes in 10 blocks
+==12089==         suppressed: 20,174 bytes in 186 blocks
+
+Robot:
+==12094== LEAK SUMMARY:
+==12094==    definitely lost: 0 bytes in 0 blocks
+==12094==    indirectly lost: 0 bytes in 0 blocks
+==12094==      possibly lost: 2,064 bytes in 1 blocks
+==12094==    still reachable: 5,101 bytes in 14 blocks
+==12094==         suppressed: 20,174 bytes in 186 blocks
+
+Momentums:
+==12102== LEAK SUMMARY:
+==12102==    definitely lost: 0 bytes in 0 blocks
+==12102==    indirectly lost: 0 bytes in 0 blocks
+==12102==      possibly lost: 2,064 bytes in 1 blocks
+==12102==    still reachable: 873 bytes in 10 blocks
+==12102==         suppressed: 24,270 bytes in 187 blocks
