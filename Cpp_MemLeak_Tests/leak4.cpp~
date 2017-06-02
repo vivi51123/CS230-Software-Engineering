@@ -65,7 +65,7 @@ int main(){
 	MemLeak m;
         m.createMemLeak("Foo Bar");
 	auto finish = chrono::high_resolution_clock::now();
-	cout << "Runtime: " << chrono::duration_cast<chrono::nanoseconds>(finish-start).count() << "ns" << endl;
+	cout << "Runtime: " << chrono::duration_cast<chrono::nanoseconds>(finish-statrt).count() << "ns" << endl;
 	return 0;
 }
 

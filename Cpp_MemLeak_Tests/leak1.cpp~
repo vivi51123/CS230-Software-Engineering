@@ -6,20 +6,6 @@
 #include <chrono>
 using namespace std;
 
-int getMilliCount(){
-	timeb tb;
-	ftime(&tb);
-	int nCount = tb.millitm + (tb.time & 0xfffff) * 1000;
-	return nCount;
-}
-
-int getMilliSpan(int nTimeStart){
-	int nSpan = getMilliCount() - nTimeStart;
-	if(nSpan < 0)
-		nSpan += 0x100000 * 1000;
-	return nSpan;
-}
-
 
 void createLeak()
 {
@@ -37,13 +23,10 @@ int main(){
 	cout << "still reachable: 0 bytes in 0 blocks"<< endl;
 	cout << "     suppressed: 0 bytes in 0 blocks" << endl;
 
-	//int start = getMilliCount();
 	auto start = chrono::high_resolution_clock::now();
 	createLeak();
 	auto finish = chrono::high_resolution_clock::now();
-	//int milliSecondsElapsed = getMilliSpan(start);
 	cout << "Runtime: " << chrono::duration_cast<chrono::nanoseconds>(finish-start).count() << "ns" << endl;
-	//cout << "Runtime: " <<  milliSecondsElapsed << "ms" << endl; 
-return 0;
+	return 0;
 }
 
