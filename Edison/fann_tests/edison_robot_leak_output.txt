@@ -1,0 +1,268 @@
+==1422== Memcheck, a memory error detector
+==1422== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1422== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==1422== Command: ./robot
+==1422== Parent PID: 992
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F5B66: vfprintf (vfprintf.c:1481)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F5B89: vfprintf (vfprintf.c:1488)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F5B99: vfprintf (vfprintf.c:1495)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F5BAA: __libc_use_alloca (allocalim.h:28)
+==1422==    by 0x40F5BAA: vfprintf (vfprintf.c:1500)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F906B: __libc_use_alloca (allocalim.h:28)
+==1422==    by 0x40F906B: vfprintf (vfprintf.c:1500)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x4027208: malloc (vg_replace_malloc.c:299)
+==1422==    by 0x40F9079: vfprintf (vfprintf.c:1504)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F7DFF: vfprintf (vfprintf.c:1974)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F7E59: vfprintf (vfprintf.c:1999)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F7E68: __libc_use_alloca (allocalim.h:28)
+==1422==    by 0x40F7E68: vfprintf (vfprintf.c:2002)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F814F: __libc_use_alloca (allocalim.h:28)
+==1422==    by 0x40F814F: vfprintf (vfprintf.c:2002)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x4027208: malloc (vg_replace_malloc.c:299)
+==1422==    by 0x40F815D: vfprintf (vfprintf.c:2009)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F7502: printf_unknown (vfprintf.c:2148)
+==1422==    by 0x40F7502: vfprintf (vfprintf.c:2076)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Use of uninitialised value of size 4
+==1422==    at 0x40F4D64: _itoa_word (_itoa.c:179)
+==1422==    by 0x40FA2F2: printf_unknown (vfprintf.c:2150)
+==1422==    by 0x40FA2F2: vfprintf (vfprintf.c:2076)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== Conditional jump or move depends on uninitialised value(s)
+==1422==    at 0x40F4D6E: _itoa_word (_itoa.c:179)
+==1422==    by 0x40FA2F2: printf_unknown (vfprintf.c:2150)
+==1422==    by 0x40FA2F2: vfprintf (vfprintf.c:2076)
+==1422==    by 0x40FF9C5: printf (printf.c:33)
+==1422==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804886F: main (robot.c:66)
+==1422== 
+==1422== 
+==1422== HEAP SUMMARY:
+==1422==     in use at exit: 269,792 bytes in 20 blocks
+==1422==   total heap usage: 27 allocs, 7 frees, 134,653,324 bytes allocated
+==1422== 
+==1422== 16 bytes in 1 blocks are indirectly lost in loss record 1 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x40394B6: fann_allocate_structure (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035EC0: fann_create_sparse_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035DD7: fann_create_standard_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035D94: fann_create_standard (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804877F: main (robot.c:38)
+==1422== 
+==1422== 16 bytes in 1 blocks are indirectly lost in loss record 2 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x4039BC7: fann_allocate_neurons (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4036030: fann_create_sparse_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035DD7: fann_create_standard_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035D94: fann_create_standard (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804877F: main (robot.c:38)
+==1422== 
+==1422== 24 bytes in 1 blocks are indirectly lost in loss record 3 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x4039641: fann_allocate_structure (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035EC0: fann_create_sparse_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035DD7: fann_create_standard_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035D94: fann_create_standard (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804877F: main (robot.c:38)
+==1422== 
+==1422== 40 bytes in 1 blocks are indirectly lost in loss record 4 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x40393A2: fann_allocate_structure (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035EC0: fann_create_sparse_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035DD7: fann_create_standard_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035D94: fann_create_standard (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804877F: main (robot.c:38)
+==1422== 
+==1422== 600 bytes in 1 blocks are indirectly lost in loss record 5 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x403D2A5: fann_compute_MSE (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403D059: fann_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403F4DF: fann_train_epoch_incremental (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403F5A2: fann_train_epoch (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403F606: fann_train_on_data (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x80487BA: main (robot.c:46)
+==1422== 
+==1422== 1,496 bytes in 1 blocks are indirectly lost in loss record 6 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x404089A: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x8048769: main (robot.c:36)
+==1422== 
+==1422== 1,496 bytes in 1 blocks are indirectly lost in loss record 7 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x40408E3: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x8048769: main (robot.c:36)
+==1422== 
+==1422== 2,376 bytes in 1 blocks are indirectly lost in loss record 8 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x404089A: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x80487D3: main (robot.c:50)
+==1422== 
+==1422== 2,376 bytes in 1 blocks are indirectly lost in loss record 9 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x40408E3: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x80487D3: main (robot.c:50)
+==1422== 
+==1422== 3,600 bytes in 1 blocks are indirectly lost in loss record 10 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x4039AFF: fann_allocate_neurons (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4036030: fann_create_sparse_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035DD7: fann_create_standard_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035D94: fann_create_standard (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804877F: main (robot.c:38)
+==1422== 
+==1422== 4,488 bytes in 1 blocks are indirectly lost in loss record 11 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x4040976: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x8048769: main (robot.c:36)
+==1422== 
+==1422== 7,128 bytes in 1 blocks are indirectly lost in loss record 12 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x4040976: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x80487D3: main (robot.c:50)
+==1422== 
+==1422== 11,912 (32 direct, 11,880 indirect) bytes in 1 blocks are definitely lost in loss record 13 of 20
+==1422==    at 0x4027267: malloc (vg_replace_malloc.c:299)
+==1422==    by 0x404083F: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x80487D3: main (robot.c:50)
+==1422== 
+==1422== 19,980 bytes in 1 blocks are indirectly lost in loss record 14 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x4039C15: fann_allocate_connections (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403626B: fann_create_sparse_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035DD7: fann_create_standard_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035D94: fann_create_standard (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804877F: main (robot.c:38)
+==1422== 
+==1422== 19,980 bytes in 1 blocks are indirectly lost in loss record 15 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x4039C5F: fann_allocate_connections (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403626B: fann_create_sparse_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035DD7: fann_create_standard_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035D94: fann_create_standard (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804877F: main (robot.c:38)
+==1422== 
+==1422== 19,980 bytes in 1 blocks are indirectly lost in loss record 16 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x403D832: fann_update_weights (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403D075: fann_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403F4DF: fann_train_epoch_incremental (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403F5A2: fann_train_epoch (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403F606: fann_train_on_data (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x80487BA: main (robot.c:46)
+==1422== 
+==1422== 64,512 (276 direct, 64,236 indirect) bytes in 1 blocks are definitely lost in loss record 17 of 20
+==1422==    at 0x4027267: malloc (vg_replace_malloc.c:299)
+==1422==    by 0x403913A: fann_allocate_structure (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035EC0: fann_create_sparse_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035DD7: fann_create_standard_array (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4035D94: fann_create_standard (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x804877F: main (robot.c:38)
+==1422== 
+==1422== 71,808 bytes in 1 blocks are indirectly lost in loss record 18 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x4040931: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x8048769: main (robot.c:36)
+==1422== 
+==1422== 79,320 (32 direct, 79,288 indirect) bytes in 1 blocks are definitely lost in loss record 19 of 20
+==1422==    at 0x4027267: malloc (vg_replace_malloc.c:299)
+==1422==    by 0x404083F: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x8048769: main (robot.c:36)
+==1422== 
+==1422== 114,048 bytes in 1 blocks are possibly lost in loss record 20 of 20
+==1422==    at 0x4028DE5: calloc (vg_replace_malloc.c:711)
+==1422==    by 0x4040931: fann_create_train (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x4040AF4: fann_read_train_from_fd (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x403EFD0: fann_read_train_from_file (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==1422==    by 0x80487D3: main (robot.c:50)
+==1422== 
+==1422== LEAK SUMMARY:
+==1422==    definitely lost: 340 bytes in 3 blocks
+==1422==    indirectly lost: 155,404 bytes in 16 blocks
+==1422==      possibly lost: 114,048 bytes in 1 blocks
+==1422==    still reachable: 0 bytes in 0 blocks
+==1422==         suppressed: 0 bytes in 0 blocks
+==1422== 
+==1422== For counts of detected and suppressed errors, rerun with: -v
+==1422== Use --track-origins=yes to see where uninitialised values come from
+==1422== ERROR SUMMARY: 32 errors from 18 contexts (suppressed: 0 from 0)

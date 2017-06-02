@@ -1,0 +1,166 @@
+root@beaglebone:~/guetzli/bin/Release# valgrind --leak-check=full --show-leak-kinds=all --leak-check-heuristics=all --time-stamp=yes ./guetzli --verbose ../../tests/bees.png ../../tests/bees2.png 
+==00:00:00:00.000 18326== Memcheck, a memory error detector
+==00:00:00:00.001 18326== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==00:00:00:00.002 18326== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==00:00:00:00.003 18326== Command: ./guetzli --verbose ../../tests/bees.png ../../tests/bees2.png
+==00:00:00:00.004 18326== 
+Original Out[ 148444] BA[100.00%] D[0.4312] Score[148444.0000] (*)
+Iter  1: f111111 quantization matrix:
+  1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1   
+  1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1   
+  1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1   
+  1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1   
+  1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1   
+  1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1   
+  1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1   
+  1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1     1  1  1  1  1  1  1  1   
+Iter  1: f111111 GQ[ 0.00] Out[ 148314] BA[100.00%] D[0.4312] Score[148314.0000] (*)
+Iter  2: f111111 quantization matrix:
+  3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3   
+  3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3   
+  3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3   
+  3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3   
+  3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3   
+  3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3   
+  3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3   
+  3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3     3  3  3  3  3  3  3  3   
+Iter  2: f111111 GQ[22.56] Out[  71781] BA[100.00%] D[0.8202] Score[71781.0000] (*)
+Iter  3: f111111 quantization matrix:
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+Iter  3: f111111 GQ[45.11] Out[  48055] BA[100.00%] D[1.1636] Score[704104882.2551]
+Iter  4: f111111 quantization matrix:
+  3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5   
+  3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5   
+  3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+Iter  4: f111111 GQ[34.14] Out[  53254] BA[100.00%] D[1.0133] Score[424950.5990]
+Iter  5: f111111 quantization matrix:
+  3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5   
+  3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5   
+  3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5   
+  3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5   
+  3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5   
+  3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5   
+  3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+Iter  5: f111111 GQ[28.46] Out[  60714] BA[100.00%] D[0.9221] Score[60714.0000] (*)
+Iter  6: f111111 quantization matrix:
+  3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5   
+  3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5   
+  3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5   
+  3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5   
+  3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+Iter  6: f111111 GQ[31.60] Out[  56026] BA[100.00%] D[0.9711] Score[56026.0000] (*)
+Iter  7: f111111 quantization matrix:
+  3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5   
+  3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5   
+  3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5   
+  3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5   
+  3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+Iter  7: f111111 GQ[30.14] Out[  57923] BA[100.00%] D[0.9533] Score[57923.0000]
+Iter  8: f111111 quantization matrix:
+  3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5   
+  3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5   
+  3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5   
+  3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5     3  3  3  5  5  5  5  5   
+  3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+Iter  8: f111111 GQ[29.52] Out[  58954] BA[100.00%] D[0.9147] Score[58954.0000]
+Iter  9: f111111 quantization matrix:
+  3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5   
+  3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5   
+  3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5   
+  3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5   
+  3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+Iter  9: f111111 GQ[29.82] Out[  58432] BA[100.00%] D[0.9286] Score[58432.0000]
+
+YUV444 selected quantization matrix:
+  3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5     3  3  3  3  3  3  5  5   
+  3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5     3  3  3  3  3  5  5  5   
+  3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5     3  3  3  3  5  5  5  5   
+  3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5     3  3  5  5  5  5  5  5   
+  3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5     3  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+  5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5     5  5  5  5  5  5  5  5   
+Iter 10: f111111(7) up Coeffs[24885/45016] Blocks[1287/1797/1848] ValThres[0.7288] Out[  46401] EstErr[0.10%] BA[100.00%] D[1.0452] Score[1820320.2343]
+Iter 11: f111111(7) up Coeffs[3563/19983] Blocks[861/1781/1848] ValThres[0.0294] Out[  44501] EstErr[0.07%] BA[100.00%] D[1.0487] Score[2088126.7296]
+Iter 12: f111111(7) up Coeffs[3543/16420] Blocks[944/1771/1848] ValThres[0.0332] Out[  42585] EstErr[0.08%] BA[100.00%] D[1.0651] Score[4521058.0405]
+Iter 13: f111111(7) up Coeffs[3439/12472] Blocks[1019/1719/1848] ValThres[0.0393] Out[  40616] EstErr[-0.01%] BA[100.00%] D[1.0643] Score[4146199.5744]
+Iter 14: f111111(7) up Coeffs[3161/8547] Blocks[1016/1580/1848] ValThres[0.0439] Out[  38721] EstErr[0.06%] BA[100.00%] D[1.0648] Score[4059845.1948]
+Iter 15: f111111(7) up Coeffs[2355/4245] Blocks[830/1177/1848] ValThres[0.0477] Out[  37247] EstErr[0.03%] BA[100.00%] D[1.0929] Score[15900228.6286]
+Iter 16: f111111(7) up Coeffs[1037/1205] Blocks[458/518/1848] ValThres[0.0404] Out[  36554] EstErr[-0.01%] BA[100.00%] D[1.0941] Score[16538895.5903]
+Iter 17: f111111(7) up Coeffs[109/109] Blocks[74/74/1848] ValThres[0.0089] Out[  36477] EstErr[-0.04%] BA[100.00%] D[1.0939] Score[16350138.5417]
+Iter 18: f111111(7) up Coeffs[1/1] Blocks[1/1/1848] ValThres[0.0031] Out[  36476] EstErr[-0.04%] BA[100.00%] D[1.0939] Score[16349690.3103]
+Iter 19: f111111(7) down Coeffs[276/36920] Blocks[132/1377/1848] ValThres[0.0057] Out[  36650] EstErr[-0.02%] BA[100.00%] D[1.0918] Score[14844479.6755]
+Iter 20: f111111(7) down Coeffs[265/35603] Blocks[141/1324/1848] ValThres[0.0060] Out[  36812] EstErr[0.00%] BA[100.00%] D[1.0574] Score[2670022.4433]
+Iter 21: f111111(7) down Coeffs[255/33933] Blocks[70/1270/1848] ValThres[0.0032] Out[  36962] EstErr[-0.01%] BA[100.00%] D[1.0494] Score[1794962.7961]
+Iter 22: f111111(7) down Coeffs[240/31881] Blocks[111/1198/1848] ValThres[0.0051] Out[  37127] EstErr[0.01%] BA[100.00%] D[1.0487] Score[1737417.9580]
+Iter 23: f111111(7) down Coeffs[225/29712] Blocks[107/1124/1848] ValThres[0.0060] Out[  37301] EstErr[0.09%] BA[100.00%] D[1.0479] Score[1682361.3188]
+Iter 24: f111111(7) down Coeffs[194/25529] Blocks[93/968/1848] ValThres[0.0045] Out[  37411] EstErr[0.06%] BA[100.00%] D[1.0418] Score[1241161.8857]
+Iter 25: f111111(7) down Coeffs[151/20438] Blocks[76/753/1848] ValThres[0.0056] Out[  37500] EstErr[0.05%] BA[100.00%] D[1.0289] Score[653273.7234]
+Iter 26: f111111(7) down Coeffs[128/17368] Blocks[30/637/1848] ValThres[0.0026] Out[  37567] EstErr[0.01%] BA[100.00%] D[1.0289] Score[654335.5935]
+Iter 27: f111111(7) down Coeffs[108/13710] Blocks[45/535/1848] ValThres[0.0055] Out[  37630] EstErr[0.02%] BA[100.00%] D[1.0057] Score[205153.0743]
+Iter 28: f111111(7) down Coeffs[68/8952] Blocks[26/335/1848] ValThres[0.0036] Out[  37701] EstErr[0.09%] BA[100.00%] D[1.0049] Score[197886.0068]
+Iter 29: f111111(7) down Coeffs[61/7880] Blocks[29/303/1848] ValThres[0.0049] Out[  37720] EstErr[0.04%] BA[100.00%] D[1.0087] Score[239464.5340]
+Iter 30: f111111(7) down Coeffs[53/6991] Blocks[25/261/1848] ValThres[0.0078] Out[  37749] EstErr[0.03%] BA[100.00%] D[1.0047] Score[196094.8086]
+Iter 31: f111111(7) down Coeffs[46/5945] Blocks[9/227/1848] ValThres[0.0015] Out[  37772] EstErr[0.01%] BA[100.00%] D[1.0048] Score[197168.5960]
+Iter 32: f111111(7) down Coeffs[48/5281] Blocks[19/201/1848] ValThres[0.0055] Out[  37819] EstErr[0.06%] BA[100.00%] D[1.0034] Score[183843.9105]
+Iter 33: f111111(7) down Coeffs[49/3569] Blocks[27/136/1848] ValThres[0.0173] Out[  37860] EstErr[0.08%] BA[100.00%] D[0.9947] Score[119150.5129]
+Iter 34: f111111(7) down Coeffs[47/1717] Blocks[23/73/1848] ValThres[0.0259] Out[  37897] EstErr[0.10%] BA[100.00%] D[0.9796] Score[56045.0362]
+Iter 35: f111111(7) down Coeffs[44/285] Blocks[10/21/1848] ValThres[0.0265] Out[  37910] EstErr[0.06%] BA[100.00%] D[0.9717] Score[37910.0000] (*)
+==00:00:46:20.459 18326== 
+==00:00:46:20.460 18326== HEAP SUMMARY:
+==00:00:46:20.460 18326==     in use at exit: 398,845 bytes in 267 blocks
+==00:00:46:20.460 18326==   total heap usage: 5,688,709 allocs, 5,688,442 frees, 2,437,841,409 bytes allocated
+==00:00:46:20.460 18326== 
+==00:00:46:20.502 18326== 2,048 bytes in 1 blocks are still reachable in loss record 1 of 3
+==00:00:46:20.504 18326==    at 0x483E4C8: operator new[](unsigned int) (vg_replace_malloc.c:417)
+==00:00:46:20.504 18326==    by 0x150A9: NewSrgb8ToLinearTable (gamma_correct.cc:24)
+==00:00:46:20.505 18326==    by 0x150A9: guetzli::Srgb8ToLinearTable() (gamma_correct.cc:36)
+==00:00:46:20.506 18326==    by 0x12A67: guetzli::ComputeOpsinDynamicsImage(int, int, std::vector<unsigned char, std::allocator<unsigned char> > const&) (butteraugli_comparator.cc:31)
+==00:00:46:20.507 18326==    by 0x12B39: guetzli::ButteraugliComparator::Compare(guetzli::OutputImage const&) (butteraugli_comparator.cc:58)
+==00:00:46:20.507 18326==    by 0x25AC5: guetzli::(anonymous namespace)::Processor::ProcessJpegData(guetzli::Params const&, guetzli::JPEGData const&, guetzli::Comparator*, guetzli::GuetzliOutput*, guetzli::ProcessStats*) [clone .constprop.429] (processor.cc:833)
+==00:00:46:20.508 18326==    by 0x26E29: ProcessJpegData (processor.cc:876)
+==00:00:46:20.509 18326==    by 0x26E29: guetzli::Process(guetzli::Params const&, guetzli::ProcessStats*, std::vector<unsigned char, std::allocator<unsigned char> > const&, int, int, std::string*) (processor.cc:934)
+==00:00:46:20.510 18326==    by 0x11D7B: main (guetzli.cc:301)
+==00:00:46:20.510 18326== 
+==00:00:46:20.511 18326== 395,525 bytes in 264 blocks are indirectly lost in loss record 2 of 3
+==00:00:46:20.512 18326==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==00:00:46:20.512 18326==    by 0x48A0DC7: png_malloc (in /lib/arm-linux-gnueabihf/libpng12.so.0.50.0)
+==00:00:46:20.513 18326== 
+==00:00:46:20.521 18326== 396,797 (1,272 direct, 395,525 indirect) bytes in 2 blocks are definitely lost in loss record 3 of 3
+==00:00:46:20.522 18326==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==00:00:46:20.522 18326==    by 0x48A0D01: ??? (in /lib/arm-linux-gnueabihf/libpng12.so.0.50.0)
+==00:00:46:20.522 18326== 
+==00:00:46:20.522 18326== LEAK SUMMARY:
+==00:00:46:20.523 18326==    definitely lost: 1,272 bytes in 2 blocks
+==00:00:46:20.523 18326==    indirectly lost: 395,525 bytes in 264 blocks
+==00:00:46:20.523 18326==      possibly lost: 0 bytes in 0 blocks
+==00:00:46:20.523 18326==    still reachable: 2,048 bytes in 1 blocks
+==00:00:46:20.523 18326==         suppressed: 0 bytes in 0 blocks
+==00:00:46:20.523 18326== 
+==00:00:46:20.524 18326== For counts of detected and suppressed errors, rerun with: -v
+==00:00:46:20.524 18326== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
