@@ -4,17 +4,21 @@ LDFLAGS=-lmraa -lm -pthread -lfann
 #SOURCES=collect_train_data.c 9DOF.c server.c LSM9DS0.c
 SOURCESFALLRISK=updated_fallrisk.c queue.c 9DOF.c server.c LSM9DS0.c
 #SOURCES=collect_train_data.c 9DOF.c server.c LSM9DS0.c
-SOURCESNEW=train_neural_net.c 
+#SOURCESNEW=train_neural_net.c 
+SOURCESNEW=fallrisk_leaks.c
 OBJECTS=$(SOURCESFALLRISK:.c=.o)
 OBJECTSNEW=$(SOURCES:.c=.o)
 #EXECUTABLE=test_neural_net
 #EXECUTABLE=collect_train_data
 EXECUTABLEFALLRISK=updated_fallrisk
-EXECUTABLENEW = train_neural_net
+#EXECUTABLENEW = train_neural_net
+EXECUTABLENEW = fallrisk_leaks
 
 all: $(SOURCES) $(EXECUTABLE)
 
-train: $(SOURCESNEW) $(EXECUTABLENEW) 
+#train: $(SOURCESNEW) $(EXECUTABLENEW) 
+leaks: 
+	$(CC) $(CFLAGS) $(LDFLAGS) fallrisk_leaks.c -o fallrisk_leaks
 
 fallrisk: $(SOURCESFALLRISK) $(EXECUTABLEFALLRISK)
 

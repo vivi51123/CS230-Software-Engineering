@@ -10,7 +10,7 @@
 #include "server.h"
 #include "9DOF.h"
 #include "LSM9DS0.h"
-
+#include "queue.h"
 #define PORTNO 5000
 
 #define NUMDATAPTS 151
@@ -18,6 +18,8 @@
 static volatile int run_flag = 1;
 int connect_flag[4] ;
 int shared_array_index = 0;
+int loopCount = 0; //added for CS230
+
 pthread_mutex_t lock;
 
 struct Angle_Buffer{
@@ -203,28 +205,28 @@ void* handle_client(void *arg) //, float pitchBuffer[], float rollBuffer[])
 				   }*/
 				   switch(index) {
 				       case 0:
-				   	 printf("Received Pitch Data from Thread 0: \n");
+				   	 //printf("Received Pitch Data from Thread 0: \n");
 				  	 for(i=1;i<NUMDATAPTS;i++) {
 				      		 //printf("%f\n", buffer[i]);
 				       		Angle_Buffer_client_0.pitchBuffer[i-1] = buffer[i];
 				  	 }
 					 break;
 				  	case 1: 
-					 printf("Received Pitch Data from Thread 1: \n");
+					 //printf("Received Pitch Data from Thread 1: \n");
 				  	 for(i=1;i<NUMDATAPTS;i++) {
 				      		 //printf("%f\n", buffer[i]);
 				       		Angle_Buffer_client_1.pitchBuffer[i-1] = buffer[i];
 				  	 }
 					 break;
 					case 2:
-					 printf("Received Pitch Data from Thread 2: \n");
+					 //printf("Received Pitch Data from Thread 2: \n");
 				  	 for(i=1;i<NUMDATAPTS;i++) {
 				      		// printf("%f\n", buffer[i]);
 				       		Angle_Buffer_client_2.pitchBuffer[i-1] = buffer[i];
 				  	 }
 					 break;
 					case 3:
-					 printf("Received Pitch Data from Thread 3: \n");
+					 //printf("Received Pitch Data from Thread 3: \n");
 				  	 for(i=1;i<NUMDATAPTS;i++) {
 				      		// printf("%f\n", buffer[i]);
 				       		Angle_Buffer_client_3.pitchBuffer[i-1] = buffer[i];
@@ -252,28 +254,28 @@ void* handle_client(void *arg) //, float pitchBuffer[], float rollBuffer[])
 				    }*/
 				     switch(index) {
 				       case 0:
-				   	 printf("Received Roll Data from Thread 0: \n");
+				   	 //printf("Received Roll Data from Thread 0: \n");
 				  	 for(i=1;i<NUMDATAPTS;i++) {
 				      		// printf("%f\n", buffer[i]);
 				       		Angle_Buffer_client_0.rollBuffer[i-1] = buffer[i];
 				  	 }
 					 break;
 				  	case 1: 
-					 printf("Received Roll Data from Thread 1: \n");
+					 //printf("Received Roll Data from Thread 1: \n");
 				  	 for(i=1;i<NUMDATAPTS;i++) {
 				      		 //printf("%f\n", buffer[i]);
 				       		Angle_Buffer_client_1.rollBuffer[i-1] = buffer[i];
 				  	 }
 					 break;
 					case 2:
-					 printf("Received Roll Data from Thread 2: \n");
+					 //printf("Received Roll Data from Thread 2: \n");
 				  	 for(i=1;i<NUMDATAPTS;i++) {
 				      		 //printf("%f\n", buffer[i]);
 				       		Angle_Buffer_client_2.rollBuffer[i-1] = buffer[i];
 				  	 }
 					 break;
 					case 3:
-					 printf("Received Roll Data from Thread 3: \n");
+					 //printf("Received Roll Data from Thread 3: \n");
 				  	 for(i=1;i<NUMDATAPTS;i++) {
 				      		// printf("%f\n", buffer[i]);
 				       		Angle_Buffer_client_3.rollBuffer[i-1] = buffer[i];
@@ -295,6 +297,7 @@ void* handle_client(void *arg) //, float pitchBuffer[], float rollBuffer[])
 	}					
 	//close(client_socket_fd);
 	//pthread_exit((void*)client);
+	free(buffer); //added for CS230
 	return NULL;
 }
 
@@ -303,12 +306,19 @@ int main(int argc, char **argv)
 {
 	pthread_t manage_9dof_tid; //, manage_server_tid;
 	int rc;
-	fann_type *output;
+	fann_type *output, *fall_output;
 	fann_type input[8];
+	float fall_input[6];
 	fann_type max;
 	struct fann *ann;
-	int k, patient_location;
-
+	struct fann *fall_ann;
+	int k, patient_location, fall_risk;
+	float danger_value;
+	struct Queue* fall_queue = malloc(sizeof(struct Queue)); //queue for storing data for neural network
+	fall_queue->front=NULL;
+	fall_queue->rear=NULL;
+	fall_queue->length=0;
+	fall_queue->maxlength=6;
 	signal(SIGINT, do_when_interrupted);
 
 	//initialize the mutex
@@ -330,26 +340,26 @@ int main(int argc, char **argv)
 	//clients *clientThreads = calloc(4,sizeof(CONNECTION*));	
 	
 	clients *clientThread_0 = calloc(1,sizeof(clients));
-	clients *clientThread_1 = calloc(1,sizeof(clients));
-	clients *clientThread_2 = calloc(1,sizeof(clients));
-	clients *clientThread_3 = calloc(1,sizeof(clients));
+	//clients *clientThread_1 = calloc(1,sizeof(clients));
+	//clients *clientThread_2 = calloc(1,sizeof(clients));
+	//clients *clientThread_3 = calloc(1,sizeof(clients));
 
 	clientThread_0->index = 0;
-	clientThread_1->index = 1;
-	clientThread_2->index = 2;
-	clientThread_3->index = 3;
+	//clientThread_1->index = 1;
+	//clientThread_2->index = 2;
+	//clientThread_3->index = 3;
 
 	clientThread_0->client = (CONNECTION*) server_accept_connection(server->sockfd);
-	clientThread_1->client = (CONNECTION*) server_accept_connection(server->sockfd);
-	clientThread_2->client = (CONNECTION*) server_accept_connection(server->sockfd);
-	clientThread_3->client = (CONNECTION*) server_accept_connection(server->sockfd);
+	//clientThread_1->client = (CONNECTION*) server_accept_connection(server->sockfd);
+	//clientThread_2->client = (CONNECTION*) server_accept_connection(server->sockfd);
+	//clientThread_3->client = (CONNECTION*) server_accept_connection(server->sockfd);
 
 	//clientThreads->client[0] = (CONNECTION*) server_accept_connection(server->sockfd);
 	//clientThreads->client[1] = (CONNECTION*) server_accept_connection(server->sockfd);
 	//clientThreads->client[2] = (CONNECTION*) server_accept_connection(server->sockfd);
 	//clientThreads->client[3] = (CONNECTION*) server_accept_connection(server->sockfd);
 
-            float server_pitch_avg = 0;
+        float server_pitch_avg = 0;
 	    float server_roll_avg = 0;
 	    float server_pitch_sum = 0; 
 	    float server_roll_sum = 0;
@@ -369,11 +379,12 @@ int main(int argc, char **argv)
 
 
 		int i;
-	while(run_flag) {
+	while(run_flag && (loopCount != 4)) { //&& loopCount !=4 added for CS230
+	    printf("loopcount: %d\n", loopCount);
 	    pthread_create(&tids[0], NULL, handle_client, (void*)clientThread_0);
-	    pthread_create(&tids[1], NULL, handle_client, (void*)clientThread_1);
-	    pthread_create(&tids[2], NULL, handle_client, (void*)clientThread_2);
-	    pthread_create(&tids[3], NULL, handle_client, (void*)clientThread_3);
+	    //pthread_create(&tids[1], NULL, handle_client, (void*)clientThread_1);
+	    //pthread_create(&tids[2], NULL, handle_client, (void*)clientThread_2);
+	    //pthread_create(&tids[3], NULL, handle_client, (void*)clientThread_3);
 	    /*
 	    pthread_create(&tids[0], NULL, handle_client, (void*)clientThreads->client[0]);
 	    pthread_create(&tids[1], NULL, handle_client, (void*)clientThreads->client[1]);
@@ -390,9 +401,9 @@ int main(int argc, char **argv)
 	    
 	    pthread_join(manage_9dof_tid, NULL);*/
 	    pthread_join(tids[0], NULL);
-	    pthread_join(tids[1], NULL);
-	    pthread_join(tids[2], NULL);
-	    pthread_join(tids[3], NULL);
+	    //pthread_join(tids[1], NULL);
+	    //pthread_join(tids[2], NULL);
+	    //pthread_join(tids[3], NULL);
    	
 	 
 	     server_pitch_avg = 0;
@@ -460,9 +471,7 @@ int main(int argc, char **argv)
 	    input[6] = client3_pitch_avg;
 	    input[7] = client3_roll_avg;
 	    
-	    //printf("before fann_run\n");
 	    output = fann_run(ann, input);
-	    //printf("after fann_run\n");
 	    max = output[0];
 	    patient_location = 0;
 	    for (k=0; k<4; k++) {
@@ -472,15 +481,90 @@ int main(int argc, char **argv)
 			    patient_location = k;
 		    }
 	    }
+	    loopCount++; //added for CS230
 	    printf("Patient is at location %d\n", patient_location); 
-	    printf("-------------------------------------------------------\n");	
+	    printf("-------------------------------------------------------\n");
+    	 
+    	//--fall risk neural network changes below--delete to revert
+    	//map patient location to a danger value from 0.0 to 1.0 (low to high danger)   
+	    /*switch (patient_location) {
+			case 0:
+				danger_value = 0.0;
+				break;
+			case 1:
+				danger_value = 0.5;
+				break;
+			case 2:
+				danger_value = 0.0;
+				break;
+			case 3:
+				danger_value = 1.0;
+				break;
+			default:
+				printf("bruh\n");
+		    
+	    }*/
+    	
+     	    //enqueue(&fall_queue, danger_value);			//then add the danger value to the queue
+    	    if(fall_queue->length == 6) {
+		dequeue(&fall_queue);
+	    }
+	    enqueue(&fall_queue, patient_location);
+	    //fall_ann = fann_create_from_file("fall_test.net");
+    	
+    	    //get float array from queue
+    	    //then run the neural net on the queue if queue is at max size
+    	    if (fall_queue->length != 6) { //if queue doesn't have 3 items yet, skip
+    		  	printf("continue\n");  
+		continue;
+   		//printf		 
+    	    }
+	    else {
+    		
+		printf("quque loop\n");
+    		get_data(fall_queue->front, fall_input);
+		int bar=0, sum=0;
+		for(;bar<MAX_QUEUELENGTH;bar++) {
+		    sum += fall_input[bar];
+		}
+		printf("sum :%d",sum);
+		if(sum/6 == 3) {
+		    printf("sum is %d",sum);
+		    printf("DANGER! DANGER! DANGER! PATIENT IS LYING NEAR EDGE OF BED.  MAY GET UP!\n");
+		    printf("-----------------------------------------------------------------------\n");
+
+		}
+	    }
 	}
+
+	//Below block is commented out, can point out that valgrind notices we don't free queue
+	//Below block is beginning stages of completely freeing queue.
+	/*
+	//added for CS230
+	while(fall_queue->front != NULL) {
+	    qnode *temp;
+	    temp = fall_queue->front;
+	    dequeue(&fall_queue);
+	    free(temp);
+	}
+	*/
+
+
 	close(clientThread_0->client->sockfd);
-	close(clientThread_1->client->sockfd);
-	close(clientThread_2->client->sockfd);
-	close(clientThread_3->client->sockfd);
+	//close(clientThread_1->client->sockfd);
+	//close(clientThread_2->client->sockfd);
+	//close(clientThread_3->client->sockfd);
 
 	printf("\n...cleanup operations complete. Exiting main.\n");
 
+	
+/*	
+	//free(buffer);
+	free(clientThread_0->client);  //added for CS230
+	free(clientThread_0); //added for CS230
+	free(fall_queue); //added for CS230
+	free(server); //added for CS230
+	free(ann); //added for CS230
+*/	
 	return 0;
 } 
