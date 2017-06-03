@@ -1,10 +1,10 @@
 //http://code.opencv.org/issues/4250
 //fix: https://github.com/opencv/opencv/pull/3867/commits/660a53e0e0223bf349f352df821fe60bdce5ef8d
 //Line 67 and 73 give memory leak, Line 66 fixes it
+//Need to write a main to run this source. 
 #include "opencv2/video/tracking.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
-
 #include <iostream>
 #include <ctype.h>
 
