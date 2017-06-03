@@ -1,6 +1,7 @@
 //http://code.opencv.org/issues/4489
 
 //This issue was never fixed but listed as suppressing errors
+//Adding suppressing error in Valgrind.cpp: https://github.com/opencv/opencv/pull/6843/files
 //Definition of suppressing errors: http://valgrind.org/docs/manual/manual-core.html#manual-core.suppress
 
 //2.4.8 found no memory leaks on Valgrind
