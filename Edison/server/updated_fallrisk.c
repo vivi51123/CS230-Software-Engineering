@@ -18,6 +18,8 @@
 static volatile int run_flag = 1;
 int connect_flag[4] ;
 int shared_array_index = 0;
+int loopCount = 0; //added for CS230
+
 pthread_mutex_t lock;
 
 struct Angle_Buffer{
@@ -377,7 +379,8 @@ int main(int argc, char **argv)
 
 
 		int i;
-	while(run_flag) {
+	while(run_flag && (loopCount != 4)) { //&& loopCount !=4 added for CS230
+	    printf("loopcount: %d\n", loopCount);
 	    pthread_create(&tids[0], NULL, handle_client, (void*)clientThread_0);
 	    //pthread_create(&tids[1], NULL, handle_client, (void*)clientThread_1);
 	    //pthread_create(&tids[2], NULL, handle_client, (void*)clientThread_2);
@@ -478,6 +481,7 @@ int main(int argc, char **argv)
 			    patient_location = k;
 		    }
 	    }
+	    loopCount++; //added for CS230
 	    printf("Patient is at location %d\n", patient_location); 
 	    printf("-------------------------------------------------------\n");
     	 
@@ -554,13 +558,13 @@ int main(int argc, char **argv)
 	printf("\n...cleanup operations complete. Exiting main.\n");
 
 	
-
+	
 	//free(buffer);
 	free(clientThread_0->client);  //added for CS230
 	free(clientThread_0); //added for CS230
 	free(fall_queue); //added for CS230
 	free(server); //added for CS230
 	free(ann); //added for CS230
-
+	
 	return 0;
 } 
