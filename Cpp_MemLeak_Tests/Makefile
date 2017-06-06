@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -g -Wall
 #OBJS = leak1.o leak2.o leak3.o leak4.o leak5.o
 #PROG = scc
-RUNFLAG = valgrind --leak-check=full --show-leak-kinds=all --time-stamp=yes
+RUNFLAG = time -p  valgrind --leak-check=full --show-leak-kinds=all --time-stamp=yes
 
 
 all: leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9
