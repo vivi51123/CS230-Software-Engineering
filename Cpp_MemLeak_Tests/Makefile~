@@ -77,5 +77,4 @@ run10:
 #break:
 #	@echo "";
 
-clean:; $(RM)  $(all) 
-	#leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9
+clean:; $(RM) leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9 leak10
