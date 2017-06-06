@@ -1,10 +1,9 @@
 //http://code.opencv.org/issues/3847
 //Fix: Line 13. This will deallocate native memory right away
+//Rename this file to "Imgproc.java" and put it under the path src/main/java/org/opencv/imgproc/Imgproc.java
+//Or you can simpliy for to imgproc.cpp and modify the code
 
 
-
-//Imgproc.findContours
-//@
 using namespace cv;
 static void findContours(Mat image, List<MatOfPoint> contours, Mat hierarchy, int mode, int method)
 {
