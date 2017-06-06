@@ -24,7 +24,7 @@ memObj::memObj()
 
 memObj::~memObj()
 {
-        delete [] data;
+        delete  data;
 }
  
 int main(){

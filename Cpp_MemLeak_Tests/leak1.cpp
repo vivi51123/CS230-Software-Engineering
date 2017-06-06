@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <sys/timeb.h>
 #include <chrono>
+
 using namespace std;
 
 
@@ -27,6 +28,7 @@ int main(){
 	createLeak();
 	auto finish = chrono::high_resolution_clock::now();
 	cout << "Runtime: " << chrono::duration_cast<chrono::nanoseconds>(finish-start).count() << "ns" << endl;
+	
 	return 0;
 }
 
