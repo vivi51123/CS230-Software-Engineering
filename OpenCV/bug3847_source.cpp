@@ -3,9 +3,10 @@
 
 
 
-Imgproc.findContours
-@
-public static void findContours(Mat image, List<MatOfPoint> contours, Mat hierarchy, int mode, int method)
+//Imgproc.findContours
+//@
+using namespace cv;
+static void findContours(Mat image, List<MatOfPoint> contours, Mat hierarchy, int mode, int method)
 {
 	Mat contours_mat = new Mat();
 	findContours_1(image.nativeObj, contours_mat.nativeObj, hierarchy.nativeObj, mode, method);

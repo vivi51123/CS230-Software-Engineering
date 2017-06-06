@@ -3,7 +3,9 @@
 //Line 16 is causing the memory leak
 //Comment 16 out and use 17 to see if memory leak goes away
 
-#include "precomp.hpp"
+//#include "~/openCV_test/OpenCV/modules"
+//precomp.hpp"
+#include <precomp.hpp>
 
 namespace cv { namespace viz
 {

@@ -2,12 +2,12 @@ CXX = g++
 CXXFLAGS = -g -Wall
 #OBJS = leak1.o leak2.o leak3.o leak4.o leak5.o
 #PROG = scc
-RUNFLAG = valgrind --leak-check=full
+RUNFLAG = valgrind --leak-check=full --show-leak-kinds=all --time-stamp=yes
 
 
-all: leak1 leak2 leak3 leak4 leak5
+all: leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9
 
-run: run1 run2 run3 run4 run5
+run: run1 run2 run3 run4 run5 run6 run7 run8 run9
 
 
 #$(PROG): $(OBJS)
@@ -28,6 +28,20 @@ leak4:
 leak5:
 	$(CXX)  $(CXXFLAGS) -o leak5 leak5.cpp
 
+leak6:
+	$(CXX) $(CXXFLAGS) -o leak6 leak6.cpp
+
+leak7:
+	$(CXX)  $(CXXFLAGS) -o leak7 leak7.cpp
+
+leak8:
+	$(CXX)  $(CXXFLAGS) -o leak8 leak8.cpp
+
+leak9:
+	$(CXX)  $(CXXFLAGS) -o leak9 leak9.cpp
+
+
+
 run1:
 	$(RUNFLAG) ./leak1
 
@@ -43,7 +57,19 @@ run4:
 run5:
 	$(RUNFLAG) ./leak5
 
+run6:
+	$(RUNFLAG) ./leak6
+
+run7:
+	$(RUNFLAG) ./leak7
+
+run8:
+	$(RUNFLAG) ./leak8
+
+run9:
+	$(RUNFLAG) ./leak9
+
 #break:
 #	@echo "";
 
-cleanall:; $(RM)  leak1 leak2 leak3 leak4 leak5
+clean:; $(RM)  leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9
