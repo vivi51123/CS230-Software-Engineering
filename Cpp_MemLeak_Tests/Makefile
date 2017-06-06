@@ -1,4 +1,4 @@
-CXX = g++
+CXX = g++ -std=c++11
 CXXFLAGS = -g -Wall
 #OBJS = leak1.o leak2.o leak3.o leak4.o leak5.o
 #PROG = scc
