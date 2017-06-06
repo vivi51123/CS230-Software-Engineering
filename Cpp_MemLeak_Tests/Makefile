@@ -5,9 +5,9 @@ CXXFLAGS = -g -Wall
 RUNFLAG = valgrind --leak-check=full --show-leak-kinds=all
 
 
-all: leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9
+all: leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9 leak10
 
-run: run1 run2 run3 run4 run5 run6 run7 run8 run9
+run: run1 run2 run3 run4 run5 run6 run7 run8 run9 run10
 
 
 #$(PROG): $(OBJS)
@@ -40,6 +40,9 @@ leak8:
 leak9:
 	$(CXX)  $(CXXFLAGS) -o leak9 leak9.cpp
 
+leak10:
+	$(CXX)  $(CXXFLAGS) -o leak10 leak10.cpp
+
 
 
 run1:
@@ -69,7 +72,9 @@ run8:
 run9:
 	$(RUNFLAG) ./leak9
 
+run10:
+	$(RUNFLAG) ./leak10
 #break:
 #	@echo "";
 
-clean:; $(RM)  leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9
+clean:; $(RM) leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9 leak10
