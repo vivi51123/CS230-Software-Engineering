@@ -1,0 +1,98 @@
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak1
+Leak 1 test, memory is allocated and not released before the program ends
+Expected output:
+definitely lost: 100 bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 1ms
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak2
+Leak 2 test: A pointer is assigned to one memory location and is then redirected without releasing the memory block. The second memory block is deleted
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 0ms
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak3
+Leak 3 test: delete array is used instead of delete [] array.
+NB: The BBB requires 8 bytes overhead for pointer arrays  therefore definitely lost = No. pointers in array * 4bytes + 8bytes (In this case 48 bytes) 
+Expected output:
+definitely lost: 48 bytes in 1 blocks
+indirectly lost: 900 bytes in 9 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+leak3(6253,0x7fff77660000) malloc: *** error for object 0x7fbb00d00158: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak4
+Leak 4 test: Interior pointer test. A pointer is assigned to a memory block and then incremented by one
+NB: The program should fail when run independantly ie without valgrind
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 1ms
+leak4(6255,0x7fff77660000) malloc: *** error for object 0x7fb94b500341: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak5
+Leak 5 test: Testing pointer to pointer memory allocation
+Char pointers require 4 bytes for BBB architecture therefore 8 bytes are definitely lost
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 124 bytes in 2 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 1ms
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak6
+Leak 6 test: Type 6 - Testing pointer to interior pointer memory allocation
+NB: program will fail when run independently ie without valgrind
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 124 bytes in 2 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+leak6(6257,0x7fff77660000) malloc: *** error for object 0x7fb06ac03871: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak7
+Leak 7 test: Type 7 - Testing interior pointer to pointer memory allocation
+NB: program will fail if run independently, ie without valgrind
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 124 bytes in 2 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+leak7(6258,0x7fff77660000) malloc: *** error for object 0x7fd7d1600158: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak8
+Leak 8 test: Type 8 - Testing interior pointer to interior pointer memory allocation
+NB: program will not run independently ie without valgrind
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 124 bytes in 2 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+leak8(6259,0x7fff77660000) malloc: *** error for object 0x7fdd69403c28: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak9
+Leak 9 test: Type 9 - Testing  pointer to interior pointer memory allocation where the first pointer is reallocated
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 124 bytes in 2 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 0ms
