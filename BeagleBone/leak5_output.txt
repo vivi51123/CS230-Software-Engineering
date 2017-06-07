@@ -1,0 +1,46 @@
+root@beaglebone:~/CS230-Software-Engineering/Cpp_MemLeak_Tests# make run5
+valgrind --leak-check=full --show-leak-kinds=all ./leak5
+==20664== Memcheck, a memory error detector
+==20664== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==20664== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==20664== Command: ./leak5
+==20664== 
+Leak 5 test: Testing pointer to pointer memory allocation
+Char pointers require 4 bytes for BBB architecture therefore 8 bytes are definitely lost
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 124 bytes in 2 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 9408917ns
+==20664== 
+==20664== HEAP SUMMARY:
+==20664==     in use at exit: 132 bytes in 3 blocks
+==20664==   total heap usage: 3 allocs, 0 frees, 132 bytes allocated
+==20664== 
+==20664== 24 bytes in 1 blocks are indirectly lost in loss record 1 of 3
+==20664==    at 0x483E4C8: operator new[](unsigned int) (vg_replace_malloc.c:417)
+==20664==    by 0x107D5: createLeak() (leak5.cpp:14)
+==20664==    by 0x10913: main (leak5.cpp:30)
+==20664== 
+==20664== 100 bytes in 1 blocks are indirectly lost in loss record 2 of 3
+==20664==    at 0x483E4C8: operator new[](unsigned int) (vg_replace_malloc.c:417)
+==20664==    by 0x107C5: createLeak() (leak5.cpp:13)
+==20664==    by 0x10913: main (leak5.cpp:30)
+==20664== 
+==20664== 132 (8 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==20664==    at 0x483E4C8: operator new[](unsigned int) (vg_replace_malloc.c:417)
+==20664==    by 0x107BB: createLeak() (leak5.cpp:12)
+==20664==    by 0x10913: main (leak5.cpp:30)
+==20664== 
+==20664== LEAK SUMMARY:
+==20664==    definitely lost: 8 bytes in 1 blocks
+==20664==    indirectly lost: 124 bytes in 2 blocks
+==20664==      possibly lost: 0 bytes in 0 blocks
+==20664==    still reachable: 0 bytes in 0 blocks
+==20664==         suppressed: 0 bytes in 0 blocks
+==20664== 
+==20664== For counts of detected and suppressed errors, rerun with: -v
+==20664== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
