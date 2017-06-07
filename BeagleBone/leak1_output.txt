@@ -11,7 +11,7 @@ definitely lost: 100 bytes in 1 blocks
 indirectly lost: 0 bytes in 0 blocks
   possibly lost: 0 bytes in 0 blocks
 still reachable: 0 bytes in 0 blocks
-     suppressed: 0 bytes in 0 blocks
+     asuppressed: 0 bytes in 0 blocks
 Runtime: 19678625ns
 ==12766== 
 ==12766== HEAP SUMMARY:
