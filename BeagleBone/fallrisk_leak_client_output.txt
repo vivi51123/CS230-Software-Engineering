@@ -1,0 +1,99 @@
+root@beaglebone:~/CS230-Software-Engineering/Edison/client# ./client 128.97.216.39 5000
+in client 
+waiting
+Accelerometer/Magnetometer ID does not match.
+Gyroscope ID does not match.
+Accelerometer/Magnetometer ID does not match.
+Calculating the offsets...
+collecting data in 9DOF thread
+done collecting in 9DOF thread
+pthread signal
+Pitch Data: 
+...
+...
+...
+==19959== 
+==19959== Process terminating with default action of signal 13 (SIGPIPE)
+==19959==    at 0x494E4F0: write (syscall-template.S:81)
+==19959==    by 0x110DB: client_handle_connection (main.c:113)
+==19959==    by 0x4948F87: start_thread (pthread_create.c:311)
+==19959==    by 0x49FB0FB: ??? (clone.S:92)
+==19959== 
+==19959== HEAP SUMMARY:
+==19959==     in use at exit: 67,689 bytes in 15 blocks
+==19959==   total heap usage: 56,052 allocs, 56,037 frees, 161,477,382 bytes allocated
+==19959== 
+==19959== Thread 1:
+==19959== 8 bytes in 1 blocks are still reachable in loss record 1 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959==    by 0x4890E23: mraa_iio_detect (in /usr/lib/arm-linux-gnueabihf/libmraa.so.1.0.0)
+==19959== 
+==19959== 17 bytes in 1 blocks are still reachable in loss record 2 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959==    by 0x48914C9: imraa_init (in /usr/lib/arm-linux-gnueabihf/libmraa.so.1.0.0)
+==19959== 
+==19959== 24 bytes in 1 blocks are still reachable in loss record 3 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959==    by 0x4891507: imraa_init (in /usr/lib/arm-linux-gnueabihf/libmraa.so.1.0.0)
+==19959== 
+==19959== 28 bytes in 1 blocks are still reachable in loss record 4 of 12
+==19959==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==19959==    by 0x4A0FD63: __res_vinit (res_init.c:317)
+==19959==    by 0x4A10ADB: __res_maybe_init (res_libc.c:125)
+==19959==    by 0x4A11B7D: __nss_hostname_digits_dots (digits_dots.c:45)
+==19959==    by 0x4A07249: gethostbyname (getXXbyYY.c:108)
+==19959==    by 0x114AB: client_init (client.c:32)
+==19959==    by 0x1135F: main (main.c:188)
+==19959== 
+==19959== 72 bytes in 3 blocks are still reachable in loss record 5 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959==    by 0x4892B93: ??? (in /usr/lib/arm-linux-gnueabihf/libmraa.so.1.0.0)
+==19959== 
+==19959== 88 bytes in 1 blocks are still reachable in loss record 6 of 12
+==19959==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==19959==    by 0x11551: ninedof_init (9DOF.c:7)
+==19959==    by 0x10ECD: read_data (main.c:45)
+==19959==    by 0x4948F87: start_thread (pthread_create.c:311)
+==19959==    by 0x49FB0FB: ??? (clone.S:92)
+==19959== 
+==19959== 136 bytes in 1 blocks are possibly lost in loss record 7 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959==    by 0x400CCE5: allocate_dtv (dl-tls.c:296)
+==19959==    by 0x400D19B: _dl_allocate_tls (dl-tls.c:460)
+==19959==    by 0x4949A5B: allocate_stack (allocatestack.c:589)
+==19959==    by 0x4949A5B: pthread_create@@GLIBC_2.4 (pthread_create.c:495)
+==19959==    by 0x1138B: main (main.c:197)
+==19959== 
+==19959== 136 bytes in 1 blocks are possibly lost in loss record 8 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959==    by 0x400CCE5: allocate_dtv (dl-tls.c:296)
+==19959==    by 0x400D19B: _dl_allocate_tls (dl-tls.c:460)
+==19959==    by 0x4949A5B: allocate_stack (allocatestack.c:589)
+==19959==    by 0x4949A5B: pthread_create@@GLIBC_2.4 (pthread_create.c:495)
+==19959==    by 0x113C9: main (main.c:203)
+==19959== 
+==19959== 212 bytes in 1 blocks are still reachable in loss record 9 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959==    by 0x489894D: mraa_beaglebone (in /usr/lib/arm-linux-gnueabihf/libmraa.so.1.0.0)
+==19959== 
+==19959== 660 bytes in 1 blocks are still reachable in loss record 10 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959==    by 0x48988CD: mraa_beaglebone (in /usr/lib/arm-linux-gnueabihf/libmraa.so.1.0.0)
+==19959== 
+==19959== 1,208 bytes in 2 blocks are still reachable in loss record 11 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959== 
+==19959== 65,100 bytes in 1 blocks are still reachable in loss record 12 of 12
+==19959==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==19959==    by 0x4898939: mraa_beaglebone (in /usr/lib/arm-linux-gnueabihf/libmraa.so.1.0.0)
+==19959== 
+==19959== LEAK SUMMARY:
+==19959==    definitely lost: 0 bytes in 0 blocks
+==19959==    indirectly lost: 0 bytes in 0 blocks
+==19959==      possibly lost: 272 bytes in 2 blocks
+==19959==    still reachable: 67,417 bytes in 13 blocks
+==19959==         suppressed: 0 bytes in 0 blocks
+==19959== 
+==19959== For counts of detected and suppressed errors, rerun with: -v
+==19959== Use --track-origins=yes to see where uninitialised values come from
+==19959== ERROR SUMMARY: 9 errors from 4 contexts (suppressed: 6 from 6)
