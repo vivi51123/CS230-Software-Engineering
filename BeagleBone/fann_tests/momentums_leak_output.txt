@@ -1,0 +1,126 @@
+root@beaglebone:~/fann/examples# valgrind --leak-check=full --show-leak-kinds=all --leak-check-heuristics=all ./momentums 
+==28192== Memcheck, a memory error detector
+==28192== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==28192== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==28192== Command: ./momentums
+==28192== 
+============= momentum = 0.000000 =============
+Max epochs     2000. Desired error: 0.0010000000.
+Epochs            1. Current error: 0.0376082994. Bit fail 67.
+Epochs           94. Current error: 0.0009900545. Bit fail 0.
+MSE error on train data: 0.001554
+MSE error on test data : 0.007271
+============= momentum = 0.100000 =============
+Max epochs     2000. Desired error: 0.0010000000.
+Epochs            1. Current error: 0.0382032543. Bit fail 68.
+Epochs           92. Current error: 0.0009963990. Bit fail 0.
+MSE error on train data: 0.001582
+MSE error on test data : 0.007585
+============= momentum = 0.200000 =============
+Max epochs     2000. Desired error: 0.0010000000.
+Epochs            1. Current error: 0.0383608788. Bit fail 75.
+Epochs           76. Current error: 0.0009780403. Bit fail 0.
+MSE error on train data: 0.001955
+MSE error on test data : 0.007783
+============= momentum = 0.300000 =============
+Max epochs     2000. Desired error: 0.0010000000.
+Epochs            1. Current error: 0.0394986160. Bit fail 75.
+Epochs           71. Current error: 0.0009862247. Bit fail 0.
+MSE error on train data: 0.001647
+MSE error on test data : 0.007675
+============= momentum = 0.400000 =============
+Max epochs     2000. Desired error: 0.0010000000.
+Epochs            1. Current error: 0.0387861170. Bit fail 72.
+Epochs           59. Current error: 0.0009961072. Bit fail 0.
+MSE error on train data: 0.001812
+MSE error on test data : 0.007740
+============= momentum = 0.500000 =============
+Max epochs     2000. Desired error: 0.0010000000.
+Epochs            1. Current error: 0.0408766977. Bit fail 78.
+Epochs           49. Current error: 0.0009888876. Bit fail 0.
+MSE error on train data: 0.001977
+MSE error on test data : 0.008170
+============= momentum = 0.600000 =============
+Max epochs     2000. Desired error: 0.0010000000.
+Epochs            1. Current error: 0.0404439345. Bit fail 75.
+Epochs           40. Current error: 0.0009849211. Bit fail 0.
+MSE error on train data: 0.001300
+MSE error on test data : 0.007507
+==28192== 
+==28192== HEAP SUMMARY:
+==28192==     in use at exit: 656,868 bytes in 81 blocks
+==28192==   total heap usage: 98 allocs, 17 frees, 692,992 bytes allocated
+==28192== 
+==28192== 4 bytes in 1 blocks are still reachable in loss record 1 of 16
+==28192==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==28192==    by 0x4A17113: ??? (in /usr/lib/arm-linux-gnueabihf/libgomp.so.1.0.0)
+==28192== 
+==28192== 112 bytes in 7 blocks are indirectly lost in loss record 2 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4896E5D: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 112 bytes in 7 blocks are indirectly lost in loss record 3 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x48956FD: fann_allocate_neurons (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 168 bytes in 7 blocks are indirectly lost in loss record 4 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4896EED: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 280 bytes in 7 blocks are indirectly lost in loss record 5 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4896E17: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 3,872 bytes in 2 blocks are indirectly lost in loss record 6 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4898BC1: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 3,872 bytes in 2 blocks are indirectly lost in loss record 7 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4898BCF: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 4,200 bytes in 7 blocks are indirectly lost in loss record 8 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4895C07: fann_compute_MSE (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 11,616 bytes in 2 blocks are indirectly lost in loss record 9 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4898BED: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 25,200 bytes in 7 blocks are indirectly lost in loss record 10 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x48956A7: fann_allocate_neurons (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 139,860 bytes in 7 blocks are indirectly lost in loss record 11 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4895725: fann_allocate_connections (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 139,860 bytes in 7 blocks are indirectly lost in loss record 12 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4895735: fann_allocate_connections (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 139,860 bytes in 7 blocks are indirectly lost in loss record 13 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4895DA5: fann_update_weights (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 185,856 bytes in 2 blocks are indirectly lost in loss record 14 of 16
+==28192==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==28192==    by 0x4898BDF: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 205,280 (64 direct, 205,216 indirect) bytes in 2 blocks are definitely lost in loss record 15 of 16
+==28192==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==28192==    by 0x4898BA3: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== 451,584 (1,932 direct, 449,652 indirect) bytes in 7 blocks are definitely lost in loss record 16 of 16
+==28192==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==28192==    by 0x4896D2F: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==28192== 
+==28192== LEAK SUMMARY:
+==28192==    definitely lost: 1,996 bytes in 9 blocks
+==28192==    indirectly lost: 654,868 bytes in 71 blocks
+==28192==      possibly lost: 0 bytes in 0 blocks
+==28192==    still reachable: 4 bytes in 1 blocks
+==28192==         suppressed: 0 bytes in 0 blocks
+==28192== 
+==28192== For counts of detected and suppressed errors, rerun with: -v
+==28192== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
