@@ -1,0 +1,99 @@
+root@beaglebone:~/fann/examples# valgrind --leak-check=full --show-leak-kinds=all --leak-check-heuristics=all ./robot 
+==20670== Memcheck, a memory error detector
+==20670== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==20670== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==20670== Command: ./robot
+==20670== 
+Creating network.
+Training network.
+Max epochs     3000. Desired error: 0.0010000000.
+Epochs            1. Current error: 0.0391050652. Bit fail 71.
+Epochs           10. Current error: 0.0061021219. Bit fail 7.
+Epochs           20. Current error: 0.0034099859. Bit fail 0.
+Epochs           30. Current error: 0.0027978916. Bit fail 0.
+Epochs           40. Current error: 0.0021691944. Bit fail 0.
+Epochs           50. Current error: 0.0014887203. Bit fail 0.
+Epochs           60. Current error: 0.0010289446. Bit fail 0.
+Epochs           61. Current error: 0.0009955153. Bit fail 0.
+Testing network.
+MSE error on test data: 0.007835
+Saving network.
+Cleaning up.
+==20670== 
+==20670== HEAP SUMMARY:
+==20670==     in use at exit: 269,796 bytes in 21 blocks
+==20670==   total heap usage: 27 allocs, 6 frees, 304,048 bytes allocated
+==20670== 
+==20670== 4 bytes in 1 blocks are still reachable in loss record 1 of 16
+==20670==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==20670==    by 0x4A17113: ??? (in /usr/lib/arm-linux-gnueabihf/libgomp.so.1.0.0)
+==20670== 
+==20670== 16 bytes in 1 blocks are indirectly lost in loss record 2 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4896E5D: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 16 bytes in 1 blocks are indirectly lost in loss record 3 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x48956FD: fann_allocate_neurons (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 24 bytes in 1 blocks are indirectly lost in loss record 4 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4896EED: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 40 bytes in 1 blocks are indirectly lost in loss record 5 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4896E17: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 600 bytes in 1 blocks are indirectly lost in loss record 6 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4895C07: fann_compute_MSE (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 3,600 bytes in 1 blocks are indirectly lost in loss record 7 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x48956A7: fann_allocate_neurons (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 3,872 bytes in 2 blocks are indirectly lost in loss record 8 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4898BC1: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 3,872 bytes in 2 blocks are indirectly lost in loss record 9 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4898BCF: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 11,616 bytes in 2 blocks are indirectly lost in loss record 10 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4898BED: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 19,980 bytes in 1 blocks are indirectly lost in loss record 11 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4895725: fann_allocate_connections (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 19,980 bytes in 1 blocks are indirectly lost in loss record 12 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4895735: fann_allocate_connections (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 19,980 bytes in 1 blocks are indirectly lost in loss record 13 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4895DA5: fann_update_weights (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 64,512 (276 direct, 64,236 indirect) bytes in 1 blocks are definitely lost in loss record 14 of 16
+==20670==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==20670==    by 0x4896D2F: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 185,856 bytes in 2 blocks are indirectly lost in loss record 15 of 16
+==20670==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==20670==    by 0x4898BDF: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== 205,280 (64 direct, 205,216 indirect) bytes in 2 blocks are definitely lost in loss record 16 of 16
+==20670==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==20670==    by 0x4898BA3: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==20670== 
+==20670== LEAK SUMMARY:
+==20670==    definitely lost: 340 bytes in 3 blocks
+==20670==    indirectly lost: 269,452 bytes in 17 blocks
+==20670==      possibly lost: 0 bytes in 0 blocks
+==20670==    still reachable: 4 bytes in 1 blocks
+==20670==         suppressed: 0 bytes in 0 blocks
+==20670== 
+==20670== For counts of detected and suppressed errors, rerun with: -v
+==20670== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

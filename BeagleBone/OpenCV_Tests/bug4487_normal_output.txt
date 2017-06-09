@@ -1,0 +1,192 @@
+root@beaglebone:~/CS230-Software-Engineering/OpenCV# valgrind --leak-check=full --show-leak-kinds=all --leak-check-heuristics=all ./bug4489_main 
+==16404== Memcheck, a memory error detector
+==16404== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==16404== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==16404== Command: ./bug4489_main
+==16404== 
+
+General configuration for OpenCV 2.4.9.1 =====================================
+  Version control:               unknown
+
+  Platform:
+    Host:                        Linux 3.16.0-4-armmp-lpae armv7l
+    CMake:                       3.0.2
+    CMake generator:             Unix Makefiles
+    CMake build tool:            /usr/bin/make
+    Configuration:               Release
+
+  C/C++:
+    Built as dynamic libs?:      YES
+    C++ Compiler:                /usr/bin/c++  (ver 4.9.2)
+    C++ flags (Release):         -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2    -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -g -O2 -fstack-protector-strong -Wformat -Werror=format-security  -DNDEBUG
+    C++ flags (Debug):           -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2    -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -g  -O0 -DDEBUG -D_DEBUG
+    C Compiler:                  /usr/bin/cc
+    C flags (Release):           -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2    -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -g -O2 -fstack-protector-strong -Wformat -Werror=format-security  -DNDEBUG
+    C flags (Debug):             -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2    -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -g  -O0 -DDEBUG -D_DEBUG
+    Linker flags (Release):      -Wl,-z,relro -Wl,-z,now -Wl,-z,relro -Wl,-z,now
+    Linker flags (Debug):        -Wl,-z,relro -Wl,-z,now
+    Precompiled headers:         YES
+
+  OpenCV modules:
+    To be built:                 core flann imgproc highgui features2d calib3d ml objdetect video contrib legacy photo gpu java ocl python stitching superres ts videostab
+    Disabled:                    world
+    Disabled by dependency:      -
+    Unavailable:                 androidcamera dynamicuda viz
+
+  GUI: 
+    QT:                          NO
+    GTK+ 2.x:                    YES (ver 2.24.25)
+    GThread :                    YES (ver 2.42.1)
+    GtkGlExt:                    YES (ver 1.2.0)
+    OpenGL support:              YES (/usr/lib/arm-linux-gnueabihf/libGLU.so /usr/lib/arm-linux-gnueabihf/libGL.so /usr/lib/arm-linux-gnueabihf/libSM.so /usr/lib/arm-linux-gnueabihf/libICE.so /usr/lib/arm-linux-gnueabihf/libX11.so /usr/lib/arm-linux-gnueabihf/libXext.so)
+    VTK support:                 NO
+
+  Media I/O: 
+    ZLib:                        /usr/lib/arm-linux-gnueabihf/libz.so (ver 1.2.8)
+    JPEG:                        /usr/lib/arm-linux-gnueabihf/libjpeg.so (ver )
+    PNG:                         /usr/lib/arm-linux-gnueabihf/libpng.so (ver 1.2.50)
+    TIFF:                        /usr/lib/arm-linux-gnueabihf/libtiff.so (ver 42 - 4.0.3)
+    JPEG 2000:                   /usr/lib/arm-linux-gnueabihf/libjasper.so (ver 1.900.1)
+    OpenEXR:                     /usr/lib/arm-linux-gnueabihf/libImath.so /usr/lib/arm-linux-gnueabihf/libIlmImf.so /usr/lib/arm-linux-gnueabihf/libIex.so /usr/lib/arm-linux-gnueabihf/libHalf.so /usr/lib/arm-linux-gnueabihf/libIlmThread.so (ver 1.6.1)
+
+  Video I/O:
+    DC1394 1.x:                  NO
+    DC1394 2.x:                  YES (ver 2.2.3)
+    FFMPEG:                      YES
+      codec:                     YES (ver 56.1.0)
+      format:                    YES (ver 56.1.0)
+      util:                      YES (ver 54.3.0)
+      swscale:                   YES (ver 3.0.0)
+      gentoo-style:              YES
+    GStreamer:                   NO
+    OpenNI:                      NO
+    OpenNI PrimeSensor Modules:  NO
+    PvAPI:                       NO
+    GigEVisionSDK:               NO
+    UniCap:                      NO
+    UniCap ucil:                 NO
+    V4L/V4L2:                    Using libv4l (ver 1.6.0)
+    XIMEA:                       NO
+    Xine:                        NO
+
+  Other third-party libraries:
+    Use IPP:                     NO
+    Use Eigen:                   YES (ver 3.2.2)
+    Use TBB:                     NO
+    Use OpenMP:                  NO
+    Use GCD                      NO
+    Use Concurrency              NO
+    Use C=:                      NO
+    Use Cuda:                    NO
+    Use OpenCL:                  YES
+
+  OpenCL:
+    Version:                     dynamic
+    Use AMD FFT:                 NO
+    Use AMD BLAS:                NO
+
+  Python:
+    Interpreter:                 /usr/bin/python2 (ver 2.7.9)
+    Libraries:                   /usr/lib/arm-linux-gnueabihf/libpython2.7.so (ver 2.7.9)
+    numpy:                       /usr/lib/python2.7/dist-packages/numpy/core/include (ver 1.8.2)
+    packages path:               lib/python2.7/dist-packages
+
+  Java:
+    ant:                         /usr/bin/ant (ver 1.9.4)
+    JNI:                         /usr/lib/jvm/default-java/include /usr/lib/jvm/default-java/include /usr/lib/jvm/default-java/include
+    Java tests:                  NO
+
+  Documentation:
+    Build Documentation:         YES
+    Sphinx:                      /usr/bin/sphinx-build (ver 1.2.3)
+    PdfLaTeX compiler:           /usr/bin/pdflatex
+
+  Tests and samples:
+    Tests:                       NO
+    Performance tests:           YES
+    C/C++ Examples:              YES
+
+  Install path:                  /usr
+
+  cvconfig.h is in:              /build/opencv-0vbGkW/opencv-2.4.9.1+dfsg/obj-arm-linux-gnueabihf
+-----------------------------------------------------------------
+
+
+==16404== 
+==16404== HEAP SUMMARY:
+==16404==     in use at exit: 108,384 bytes in 875 blocks
+==16404==   total heap usage: 2,258 allocs, 1,383 frees, 548,885 bytes allocated
+==16404== 
+==16404== 4 bytes in 1 blocks are still reachable in loss record 1 of 15
+==16404==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==16404==    by 0x5C4AE8D: g_private_get (in /lib/arm-linux-gnueabihf/libglib-2.0.so.0.4200.1)
+==16404== 
+==16404== 32 bytes in 1 blocks are still reachable in loss record 2 of 15
+==16404==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==16404==    by 0x5C4AB5B: ??? (in /lib/arm-linux-gnueabihf/libglib-2.0.so.0.4200.1)
+==16404== 
+==16404== 32 bytes in 4 blocks are possibly lost in loss record 3 of 15
+==16404==    at 0x483D3F8: malloc (vg_replace_malloc.c:298)
+==16404==    by 0x483FCB7: realloc (vg_replace_malloc.c:785)
+==16404==    by 0x5C1F04B: g_realloc (in /lib/arm-linux-gnueabihf/libglib-2.0.so.0.4200.1)
+==16404== 
+==16404== 92 bytes in 1 blocks are possibly lost in loss record 4 of 15
+==16404==    at 0x483FD44: realloc (vg_replace_malloc.c:785)
+==16404==    by 0x5C1F04B: g_realloc (in /lib/arm-linux-gnueabihf/libglib-2.0.so.0.4200.1)
+==16404== 
+==16404== 96 bytes in 4 blocks are still reachable in loss record 5 of 15
+==16404==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==16404==    by 0x7848DF7: ??? (in /usr/lib/arm-linux-gnueabihf/libgnutls-deb0.so.28.41.0)
+==16404== 
+==16404== 344 bytes in 45 blocks are still reachable in loss record 6 of 15
+==16404==    at 0x483D3F8: malloc (vg_replace_malloc.c:298)
+==16404==    by 0x483FCB7: realloc (vg_replace_malloc.c:785)
+==16404==    by 0x5C1F04B: g_realloc (in /lib/arm-linux-gnueabihf/libglib-2.0.so.0.4200.1)
+==16404== 
+==16404== 468 bytes in 1 blocks are still reachable in loss record 7 of 15
+==16404==    at 0x483FD44: realloc (vg_replace_malloc.c:785)
+==16404==    by 0x78465B3: gnutls_realloc_fast (in /usr/lib/arm-linux-gnueabihf/libgnutls-deb0.so.28.41.0)
+==16404== 
+==16404== 604 bytes in 13 blocks are possibly lost in loss record 8 of 15
+==16404==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==16404==    by 0x5C1EFFD: g_malloc0 (in /lib/arm-linux-gnueabihf/libglib-2.0.so.0.4200.1)
+==16404== 
+==16404== 1,396 bytes in 64 blocks are still reachable in loss record 9 of 15
+==16404==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==16404==    by 0x7B5CB47: ??? (in /usr/lib/arm-linux-gnueabihf/libtasn1.so.6.3.2)
+==16404== 
+==16404== 2,048 bytes in 1 blocks are still reachable in loss record 10 of 15
+==16404==    at 0x483FD44: realloc (vg_replace_malloc.c:785)
+==16404==    by 0x5C1F04B: g_realloc (in /lib/arm-linux-gnueabihf/libglib-2.0.so.0.4200.1)
+==16404== 
+==16404== 5,160 bytes in 5 blocks are still reachable in loss record 11 of 15
+==16404==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==16404==    by 0x6F84A0B: ??? (in /usr/lib/arm-linux-gnueabihf/libpixman-1.so.0.32.6)
+==16404== 
+==16404== 8,104 bytes in 135 blocks are still reachable in loss record 12 of 15
+==16404==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==16404==    by 0x5C1EFFD: g_malloc0 (in /lib/arm-linux-gnueabihf/libglib-2.0.so.0.4200.1)
+==16404== 
+==16404== 8,192 bytes in 2 blocks are still reachable in loss record 13 of 15
+==16404==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==16404==    by 0x7959E0D: ??? (in /lib/arm-linux-gnueabihf/libudev.so.1.6.4)
+==16404== 
+==16404== 8,852 bytes in 28 blocks are still reachable in loss record 14 of 15
+==16404==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==16404==    by 0x5C1EFB9: g_malloc (in /lib/arm-linux-gnueabihf/libglib-2.0.so.0.4200.1)
+==16404== 
+==16404== 72,960 bytes in 570 blocks are still reachable in loss record 15 of 15
+==16404==    at 0x483FAAC: calloc (vg_replace_malloc.c:711)
+==16404==    by 0x7B5C94B: ??? (in /usr/lib/arm-linux-gnueabihf/libtasn1.so.6.3.2)
+==16404== 
+==16404== LEAK SUMMARY:
+==16404==    definitely lost: 0 bytes in 0 blocks
+==16404==    indirectly lost: 0 bytes in 0 blocks
+==16404==      possibly lost: 728 bytes in 18 blocks
+==16404==    still reachable: 107,656 bytes in 857 blocks
+==16404==                       of which reachable via heuristic:
+==16404==                         newarray           : 832 bytes in 16 blocks
+==16404==         suppressed: 0 bytes in 0 blocks
+==16404== 
+==16404== For counts of detected and suppressed errors, rerun with: -v
+==16404== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
