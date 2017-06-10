@@ -1,0 +1,580 @@
+Zhengshuangs-MacBook-Pro:tensorflow Ryan$ bazel-bin/tensorflow/examples/label_image/
+-bash: bazel-bin/tensorflow/examples/label_image/: is a directory
+Zhengshuangs-MacBook-Pro:tensorflow Ryan$ bazel-bin/tensorflow/examples/label_image/label_image
+2017-06-06 18:43:46.596106: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-06-06 18:43:46.596713: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-06-06 18:43:46.596723: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-06-06 18:43:46.596732: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-06-06 18:43:48.448459: I tensorflow/examples/label_image/main.cc:251] military uniform (653): 0.834306
+2017-06-06 18:43:48.448484: I tensorflow/examples/label_image/main.cc:251] mortarboard (668): 0.0218692
+2017-06-06 18:43:48.448494: I tensorflow/examples/label_image/main.cc:251] academic gown (401): 0.0103579
+2017-06-06 18:43:48.448502: I tensorflow/examples/label_image/main.cc:251] pickelhaube (716): 0.00800814
+2017-06-06 18:43:48.448511: I tensorflow/examples/label_image/main.cc:251] bulletproof vest (466): 0.00535088
+Zhengshuangs-MacBook-Pro:tensorflow Ryan$ valgrind --leak-check=full bazel-bin/tensorflow/examples/label_image/label_image
+==25197== Memcheck, a memory error detector
+==25197== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==25197== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==25197== Command: bazel-bin/tensorflow/examples/label_image/label_image
+==25197== 
+--25197-- run: /usr/bin/dsymutil "bazel-bin/tensorflow/examples/label_image/label_image"
+warning: no debug symbols in executable (-arch x86_64)
+--25197-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option
+--25197-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option (repeated 2 times)
+--25197-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option (repeated 4 times)
+2017-06-06 18:44:30.278153: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-06-06 18:44:30.419237: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-06-06 18:44:30.420270: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-06-06 18:44:30.421663: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-06-06 18:45:38.216330: I tensorflow/examples/label_image/main.cc:251] military uniform (653): 0.834306
+2017-06-06 18:45:38.218419: I tensorflow/examples/label_image/main.cc:251] mortarboard (668): 0.0218692
+2017-06-06 18:45:38.219333: I tensorflow/examples/label_image/main.cc:251] academic gown (401): 0.0103579
+2017-06-06 18:45:38.219628: I tensorflow/examples/label_image/main.cc:251] pickelhaube (716): 0.00800814
+2017-06-06 18:45:38.219912: I tensorflow/examples/label_image/main.cc:251] bulletproof vest (466): 0.00535088
+==25197== 
+==25197== HEAP SUMMARY:
+==25197==     in use at exit: 4,557,118 bytes in 69,423 blocks
+==25197==   total heap usage: 708,164 allocs, 638,741 frees, 2,216,542,752 bytes allocated
+==25197== 
+==25197== 11 bytes in 1 blocks are possibly lost in loss record 15 of 38,834
+==25197==    at 0x10683D681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106AE4B7E: strdup (in /usr/lib/system/libsystem_c.dylib)
+==25197==    by 0x106DD2F24: readClass(objc_class*, bool, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6ECC: objc::DenseMapBase<objc::DenseMap<DisguisedPtr<objc_object>, unsigned long, true, objc::DenseMapInfo<DisguisedPtr<objc_object> > >, DisguisedPtr<objc_object>, unsigned long, objc::DenseMapInfo<DisguisedPtr<objc_object> >, true>::find(DisguisedPtr<objc_object> const&) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A437: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F9B2: ImageLoader::runInitializers(ImageLoader::LinkContext const&, ImageLoader::InitializerTimingList&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,075 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E71: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,076 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A487: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,077 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A4FF: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,078 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A4FF: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,079 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A54F: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,080 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A54F: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,081 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A577: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,082 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A577: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,083 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A59F: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,084 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A59F: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,085 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10738005D: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,086 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x1073800AF: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,087 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x1073800D8: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,088 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107380101: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,089 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD732B: remethodizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107380170: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F9B2: ImageLoader::runInitializers(ImageLoader::LinkContext const&, ImageLoader::InitializerTimingList&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,090 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD7319: objc_object::sidetable_release(bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10738017C: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F9B2: ImageLoader::runInitializers(ImageLoader::LinkContext const&, ImageLoader::InitializerTimingList&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,091 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD732B: remethodizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10738017C: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F9B2: ImageLoader::runInitializers(ImageLoader::LinkContext const&, ImageLoader::InitializerTimingList&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,092 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD7319: objc_object::sidetable_release(bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107380188: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F9B2: ImageLoader::runInitializers(ImageLoader::LinkContext const&, ImageLoader::InitializerTimingList&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,093 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD732B: remethodizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107380188: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F9B2: ImageLoader::runInitializers(ImageLoader::LinkContext const&, ImageLoader::InitializerTimingList&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,094 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A7AD: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F9B2: ImageLoader::runInitializers(ImageLoader::LinkContext const&, ImageLoader::InitializerTimingList&) (in /usr/lib/dyld)
+==25197== 
+==25197== 24 bytes in 1 blocks are possibly lost in loss record 13,095 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A7BC: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 32 bytes in 1 blocks are possibly lost in loss record 17,100 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD272D: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD286F: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD27B9: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E71: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197== 
+==25197== 32 bytes in 1 blocks are possibly lost in loss record 17,101 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD272D: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E71: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 32 bytes in 1 blocks are possibly lost in loss record 17,102 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD272D: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A4D7: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 32 bytes in 1 blocks are possibly lost in loss record 17,103 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD272D: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A59F: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 32 bytes in 1 blocks are possibly lost in loss record 17,104 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD272D: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107380034: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 32 bytes in 1 blocks are possibly lost in loss record 17,105 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD272D: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD732B: remethodizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107380194: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F9B2: ImageLoader::runInitializers(ImageLoader::LinkContext const&, ImageLoader::InitializerTimingList&) (in /usr/lib/dyld)
+==25197== 
+==25197== 32 bytes in 1 blocks are possibly lost in loss record 17,106 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD272D: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x10737A7AD: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 40 bytes in 1 blocks are possibly lost in loss record 23,871 of 38,834
+==25197==    at 0x10683E0E6: realloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DE5D30: addUnattachedCategoryForClass(category_t*, objc_class*, header_info*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DE55E1: layout_bitmap_or (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6335: _class_initialize (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD1E2D: _read_images (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD05DA: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DE2C6C: batchFinalizeOnTwoThreads(_malloc_zone_t*, void (*)(auto_zone_cursor*, void (*)(void*, void*), void*), auto_zone_cursor*, unsigned long) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x7FFF5FC047CF: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*)) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC04516: dyld::registerImageStateBatchChangeHandler(dyld_image_states, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*)) (in /usr/lib/dyld)
+==25197==    by 0x106A2D89D: dyld_register_image_state_change_handler (in /usr/lib/system/libdyld.dylib)
+==25197==    by 0x106DCF07B: _objc_init (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x1069D5C93: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==25197== 
+==25197== 40 bytes in 1 blocks are possibly lost in loss record 23,872 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD272D: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107380034: __CFMakeNSBlockClasses (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x10737A6AE: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 64 bytes in 1 blocks are possibly lost in loss record 29,459 of 38,834
+==25197==    at 0x10683DD7F: calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD3231: NXMapGet (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E2B: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 64 bytes in 1 blocks are possibly lost in loss record 29,460 of 38,834
+==25197==    at 0x10683DD7F: calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD3231: NXMapGet (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E2B: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 64 bytes in 1 blocks are possibly lost in loss record 29,461 of 38,834
+==25197==    at 0x10683DD7F: calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD3231: NXMapGet (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E4E: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F742: ImageLoader::processInitializers(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 64 bytes in 1 blocks are possibly lost in loss record 29,462 of 38,834
+==25197==    at 0x10683DD7F: calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD3231: NXMapGet (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E4E: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F8BC: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC0F851: ImageLoader::recursiveInitialization(ImageLoader::LinkContext const&, unsigned int, ImageLoader::InitializerTimingList&, ImageLoader::UninitedUpwards&) (in /usr/lib/dyld)
+==25197== 
+==25197== 64 bytes in 2 blocks are possibly lost in loss record 29,463 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD272D: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD286F: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD27B9: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E71: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197== 
+==25197== 120 bytes in 5 blocks are possibly lost in loss record 31,448 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD286F: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD27B9: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E71: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197==    by 0x7FFF5FC13278: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197== 
+==25197== 144 bytes in 6 blocks are possibly lost in loss record 31,481 of 38,834
+==25197==    at 0x10683DF51: malloc_zone_calloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==25197==    by 0x106DD277B: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD286F: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD27B9: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3965: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD3300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD32E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD6571: _objc_fetch_pthread_data (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x106DD68EE: objc_class::setInitialized() (in /usr/lib/libobjc.A.dylib)
+==25197==    by 0x107379E71: __CFInitialize (in /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation)
+==25197==    by 0x7FFF5FC12FCD: ImageLoaderMachO::doImageInit(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==25197== 
+==25197== LEAK SUMMARY:
+==25197==    definitely lost: 0 bytes in 0 blocks
+==25197==    indirectly lost: 0 bytes in 0 blocks
+==25197==      possibly lost: 1,403 bytes in 48 blocks
+==25197==    still reachable: 4,496,675 bytes in 69,202 blocks
+==25197==         suppressed: 59,040 bytes in 173 blocks
+==25197== Reachable blocks (those to which a pointer was found) are not shown.
+==25197== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==25197== 
+==25197== For counts of detected and suppressed errors, rerun with: -v
+==25197== ERROR SUMMARY: 38 errors from 38 contexts (suppressed: 11 from 11)
