@@ -1,0 +1,202 @@
+valgrind --leak-check=full --show-leak-kinds=all --leak-check-heuristics=all ./robot
+==1565== Memcheck, a memory error detector
+==1565== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1565== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==1565== Command: ./robot
+==1565== 
+--1565-- run: /usr/bin/dsymutil "./robot"
+warning: no debug symbols in executable (-arch x86_64)
+Creating network.
+Training network.
+Max epochs     3000. Desired error: 0.0010000000.
+Epochs            1. Current error: 0.0395534113. Bit fail 71.
+Epochs           10. Current error: 0.0058271522. Bit fail 5.
+Epochs           20. Current error: 0.0035326111. Bit fail 0.
+Epochs           30. Current error: 0.0029428029. Bit fail 0.
+Epochs           40. Current error: 0.0023671370. Bit fail 0.
+Epochs           50. Current error: 0.0016960405. Bit fail 0.
+Epochs           60. Current error: 0.0011734162. Bit fail 0.
+Epochs           65. Current error: 0.0009926425. Bit fail 0.
+Testing network.
+MSE error on test data: 0.007190
+Saving network.
+Cleaning up.
+==1565== 
+==1565== HEAP SUMMARY:
+==1565==     in use at exit: 27,339 bytes in 201 blocks
+==1565==   total heap usage: 305 allocs, 104 frees, 409,007 bytes allocated
+==1565== 
+==1565== 32 bytes in 1 blocks are still reachable in loss record 19 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DF36B: __s2b_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E21EF: __strtodg (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2E8A: strtof_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100209E03: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CECF: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 32 bytes in 1 blocks are still reachable in loss record 20 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E228C: __strtodg (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2E8A: strtof_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100209E03: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CECF: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 36 bytes in 1 blocks are still reachable in loss record 21 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DF1FF: __d2b_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E0F09: __rvOK_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E1D07: __strtodg (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2E8A: strtof_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100209E03: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CECF: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 36 bytes in 1 blocks are still reachable in loss record 22 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E22B8: __strtodg (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2E8A: strtof_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100209E03: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CECF: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 36 bytes in 1 blocks are still reachable in loss record 23 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DEBA6: __i2b_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E22FB: __strtodg (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2E8A: strtof_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100209E03: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CECF: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 36 bytes in 1 blocks are still reachable in loss record 24 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DEC04: __mult_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2390: __strtodg (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2E8A: strtof_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100209E03: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CECF: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 36 bytes in 1 blocks are still reachable in loss record 25 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DEE7C: __lshift_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2B2F: __strtodg (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2E8A: strtof_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100209E03: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CECF: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 36 bytes in 1 blocks are still reachable in loss record 26 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DEE7C: __lshift_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2B2F: __strtodg (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2E8A: strtof_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100209E03: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CF1E: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 44 bytes in 1 blocks are still reachable in loss record 27 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DEE7C: __lshift_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DC201: __dtoa (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1002043DE: __vfprintf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10022D6C0: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100203381: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FB884: fprintf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100019D7E: fann_save_internal_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100018F43: fann_save (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000DAE: main (in ./robot)
+==1565== 
+==1565== 80 bytes in 1 blocks are still reachable in loss record 41 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE8B6: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DF1FF: __d2b_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E0F09: __rvOK_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E1D07: __strtodg (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001E2E8A: strtof_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100209E03: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CECF: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 88 bytes in 2 blocks are still reachable in loss record 42 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001DE95F: __Balloc_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DEE7C: __lshift_D2A (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001DC5A5: __dtoa (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1002043DE: __vfprintf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10022D6C0: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100203381: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FB884: fprintf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100019D7E: fann_save_internal_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100018F43: fann_save (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000DAE: main (in ./robot)
+==1565== 
+==1565== 513 bytes in 1 blocks are still reachable in loss record 61 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x10020A664: __parsefloat_buf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1002089E7: __svfscanf_l (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FC48B: fscanf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x10001CECF: fann_read_train_from_fd (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x10001CDF8: fann_read_train_from_file (in /Users/Ryan/Desktop/UCLA/CS230/fann/src/libfann.2.2.0.dylib)
+==1565==    by 0x100000CB2: main (in ./robot)
+==1565== 
+==1565== 2,064 bytes in 1 blocks are possibly lost in loss record 67 of 71
+==1565==    at 0x100009942: malloc_zone_malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x100514EFD: _objc_copyClassNamesForImage (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x100508182: protocols() (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x100508093: readClass(objc_class*, bool, bool) (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x100505C13: gc_init (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x10050D24E: objc_initializeClassPair_internal(objc_class*, char const*, objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x10051A132: layout_string_create (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x10050883C: realizeClass(objc_class*) (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x100508300: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x1005082E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x1005082E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==1565==    by 0x1005082E9: copySwiftV1MangledName(char const*, bool) (in /usr/lib/libobjc.A.dylib)
+==1565== 
+==1565== 4,096 bytes in 1 blocks are still reachable in loss record 71 of 71
+==1565==    at 0x100009681: malloc (in /usr/local/Cellar/valgrind/3.12.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==1565==    by 0x1001FDAEE: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100212B41: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1001FCD4A: __sfvwrite (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x1002014C0: puts (in /usr/lib/system/libsystem_c.dylib)
+==1565==    by 0x100000CA6: main (in ./robot)
+==1565== 
+==1565== LEAK SUMMARY:
+==1565==    definitely lost: 0 bytes in 0 blocks
+==1565==    indirectly lost: 0 bytes in 0 blocks
+==1565==      possibly lost: 2,064 bytes in 1 blocks
+==1565==    still reachable: 5,101 bytes in 14 blocks
+==1565==         suppressed: 20,174 bytes in 186 blocks
+==1565== 
+==1565== For counts of detected and suppressed errors, rerun with: -v
+==1565== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 11 from 11)
