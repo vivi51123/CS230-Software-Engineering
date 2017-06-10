@@ -27,5 +27,5 @@ int main()
     cv::Mat src = cv::Mat::zeros(5, 5, CV_8UC3);
     cv::Mat dst;
 
-    cv::cvtColor( src, dst, CV_BGR2GRAY );
+    //cv::cvtColor( src, dst, CV_BGR2GRAY );
 }

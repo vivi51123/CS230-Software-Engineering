@@ -2,16 +2,16 @@ CXX = g++ -std=c++11
 CXXFLAGS = -g -Wall
 #OBJS = leak1.o leak2.o leak3.o leak4.o leak5.o
 #PROG = scc
-RUNFLAG = valgrind --leak-check=full --show-leak-kinds=all
+RUNFLAG = valgrind --leak-check=full --show-leak-kinds=all --leak-check-heuristics=all
 
 
-all: leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9 leak10
+all: leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9 leak10 leak11_6 leak12_7 leak13_8 leak14_9
 
-run: run1 run2 run3 run4 run5 run6 run7 run8 run9 run10
+run: run1 run2 run3 run4 run5 run6 run7 run8 run9 run10 run11_6 run12_7 run13_8 run14_9
 
-new: leak1 leak2 leak5 leak9 leak10
+new: leak1 leak2 leak5 leak9 leak10 leak11_6 leak12_7 leak13_8 leak14_9
 
-runnew: run1 run2 run5 run9 run10
+runnew: run1 run2 run5 run9 run10 run11_6 run12_7 run13_8 run14_9
 
 #$(PROG): $(OBJS)
 #$(CXX) -o ($PROG) $(OBJS)
@@ -46,7 +46,17 @@ leak9:
 leak10:
 	$(CXX)  $(CXXFLAGS) -o leak10 leak10.cpp
 
+leak11_6:
+	$(CXX)  $(CXXFLAGS) -o leak11_6 leak11_6.cpp
 
+leak12_7:
+	$(CXX)  $(CXXFLAGS) -o leak12_7 leak12_7.cpp
+
+leak13_8:
+	$(CXX)  $(CXXFLAGS) -o leak13_8 leak13_8.cpp
+
+leak14_9:
+	$(CXX)  $(CXXFLAGS) -o leak14_9 leak14_9.cpp
 
 run1:
 	$(RUNFLAG) ./leak1
@@ -77,7 +87,19 @@ run9:
 
 run10:
 	$(RUNFLAG) ./leak10
+
+run11_6:
+	$(RUNFLAG) ./leak11_6
+
+run12_7:
+	$(RUNFLAG) ./leak12_7
+
+run13_8:
+	$(RUNFLAG) ./leak13_8
+
+run14_9:
+	$(RUNFLAG) ./leak14_9
 #break:
 #	@echo "";
 
-clean:; $(RM) leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9 leak10
+clean:; $(RM) leak1 leak2 leak3 leak4 leak5 leak6 leak7 leak8 leak9 leak10 leak11_6 leak12_7 leak13_8 leak14_9
