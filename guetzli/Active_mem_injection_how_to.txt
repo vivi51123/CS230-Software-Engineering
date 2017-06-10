@@ -1,0 +1,36 @@
+Active memleak injection for guetzli
+
+Find the guetzli.cc file
+$cd guetzli/guetzli
+$ nano guetzli.cc
+
+scroll down and find the “case 3: ” portion of code (or search for //RGB)
+insert the 3 lines: 
+	int *leak_ptr;
+	fprintf(stderr, "Reached RGB area\n");
+
+	leak_ptr = new int[10];
+as shown here (Note the 3rd line is inside the loop):
+
+
+case 3: {
+      // RGB
+      int *leak_ptr;
+      fprintf(stderr, "Reached RGB area\n");
+      for (int y = 0; y < *ysize; ++y) {
+        leak_ptr = new int[10];
+        const uint8_t* row_in = row_pointers[y];
+        uint8_t* row_out = &(*rgb)[3 * y * (*xsize)];
+        memcpy(row_out, row_in, 3 * (*xsize));
+      }
+      break;
+    }
+ 
+
+For clarity the code must be exactly the same as above! 
+
+save the file then rebuild the repo as before
+finally run the test in the same way the passive test was run (make sure timestamps are on just in case we need that info): 
+
+valgrind --leak-check=full --show-leak-kinds=all --leak-check-heuristics=all --time-stamp=yes ./guetzli --verbose ../../tests/bees.png ../../tests/bees2.png 
+
