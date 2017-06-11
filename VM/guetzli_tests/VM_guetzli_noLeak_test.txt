@@ -1,0 +1,44 @@
+==00:00:00:00.000 6434== Memcheck, a memory error detector
+==00:00:00:00.000 6434== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==00:00:00:00.000 6434== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==00:00:00:00.000 6434== Command: ./guetzli --verbose ../../tests/bees.png ../../tests/bees2.png
+==00:00:00:00.000 6434== Parent PID: 2626
+==00:00:00:00.000 6434== 
+==00:00:03:44.640 6434== 
+==00:00:03:44.640 6434== HEAP SUMMARY:
+==00:00:03:44.640 6434==     in use at exit: 74,752 bytes in 2 blocks
+==00:00:03:44.640 6434==   total heap usage: 5,686,423 allocs, 5,686,421 frees, 2,474,584,471 bytes allocated
+==00:00:03:44.640 6434== 
+==00:00:03:44.640 6434== 2,048 bytes in 1 blocks are still reachable in loss record 1 of 2
+==00:00:03:44.640 6434==    at 0x4C2E80F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:03:44.640 6434==    by 0x409339: NewSrgb8ToLinearTable (gamma_correct.cc:24)
+==00:00:03:44.640 6434==    by 0x409339: guetzli::Srgb8ToLinearTable() (gamma_correct.cc:36)
+==00:00:03:44.640 6434==    by 0x403FB9: guetzli::ComputeOpsinDynamicsImage(int, int, std::vector<unsigned char, std::allocator<unsigned char> > const&) (butteraugli_comparator.cc:31)
+==00:00:03:44.640 6434==    by 0x4042CF: guetzli::ButteraugliComparator::Compare(guetzli::OutputImage const&) (butteraugli_comparator.cc:58)
+==00:00:03:44.640 6434==    by 0x427507: guetzli::(anonymous namespace)::Processor::ProcessJpegData(guetzli::Params const&, guetzli::JPEGData const&, guetzli::Comparator*, guetzli::GuetzliOutput*, guetzli::ProcessStats*) [clone .constprop.436] (processor.cc:833)
+==00:00:03:44.640 6434==    by 0x4293FC: ProcessJpegData (processor.cc:876)
+==00:00:03:44.640 6434==    by 0x4293FC: guetzli::Process(guetzli::Params const&, guetzli::ProcessStats*, std::vector<unsigned char, std::allocator<unsigned char> > const&, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*) (processor.cc:934)
+==00:00:03:44.640 6434==    by 0x4022EF: main (guetzli.cc:301)
+==00:00:03:44.640 6434== 
+==00:00:03:44.640 6434== 72,704 bytes in 1 blocks are still reachable in loss record 2 of 2
+==00:00:03:44.640 6434==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:03:44.640 6434==    by 0x50E8EFF: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==00:00:03:44.640 6434==    by 0x40104E9: call_init.part.0 (dl-init.c:72)
+==00:00:03:44.640 6434==    by 0x40105FA: call_init (dl-init.c:30)
+==00:00:03:44.640 6434==    by 0x40105FA: _dl_init (dl-init.c:120)
+==00:00:03:44.640 6434==    by 0x4000CF9: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==00:00:03:44.640 6434==    by 0x3: ???
+==00:00:03:44.640 6434==    by 0xFFF00005A: ???
+==00:00:03:44.640 6434==    by 0xFFF000064: ???
+==00:00:03:44.640 6434==    by 0xFFF00006E: ???
+==00:00:03:44.640 6434==    by 0xFFF000083: ???
+==00:00:03:44.640 6434== 
+==00:00:03:44.640 6434== LEAK SUMMARY:
+==00:00:03:44.640 6434==    definitely lost: 0 bytes in 0 blocks
+==00:00:03:44.640 6434==    indirectly lost: 0 bytes in 0 blocks
+==00:00:03:44.640 6434==      possibly lost: 0 bytes in 0 blocks
+==00:00:03:44.640 6434==    still reachable: 74,752 bytes in 2 blocks
+==00:00:03:44.640 6434==         suppressed: 0 bytes in 0 blocks
+==00:00:03:44.640 6434== 
+==00:00:03:44.640 6434== For counts of detected and suppressed errors, rerun with: -v
+==00:00:03:44.640 6434== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

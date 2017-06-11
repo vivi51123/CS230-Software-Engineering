@@ -1,0 +1,184 @@
+==00:00:00:00.000 8064== Memcheck, a memory error detector
+==00:00:00:00.000 8064== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==00:00:00:00.000 8064== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==00:00:00:00.000 8064== Command: ./mushroom
+==00:00:00:00.000 8064== Parent PID: 2626
+==00:00:00:00.000 8064== 
+==00:00:00:18.993 8064== 
+==00:00:00:18.993 8064== HEAP SUMMARY:
+==00:00:00:18.993 8064==     in use at exit: 4,360,492 bytes in 23 blocks
+==00:00:00:18.993 8064==   total heap usage: 34 allocs, 11 frees, 4,412,936 bytes allocated
+==00:00:00:18.993 8064== 
+==00:00:00:19.020 8064== 8 bytes in 1 blocks are still reachable in loss record 1 of 23
+==00:00:00:19.020 8064==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x5730778: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==00:00:00:19.020 8064==    by 0x5739647: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==00:00:00:19.020 8064==    by 0x572EDE1: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==00:00:00:19.020 8064==    by 0x40104E9: call_init.part.0 (dl-init.c:72)
+==00:00:00:19.020 8064==    by 0x40105FA: call_init (dl-init.c:30)
+==00:00:00:19.020 8064==    by 0x40105FA: _dl_init (dl-init.c:120)
+==00:00:00:19.020 8064==    by 0x4000CF9: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 12 bytes in 1 blocks are indirectly lost in loss record 2 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E454EF: fann_allocate_neurons (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E494C1: fann_create_sparse_array (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49B6F: fann_create_standard (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A39: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 16 bytes in 1 blocks are indirectly lost in loss record 3 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E49296: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49413: fann_create_sparse_array (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49B6F: fann_create_standard (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A39: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 40 bytes in 1 blocks are indirectly lost in loss record 4 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E49225: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49413: fann_create_sparse_array (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49B6F: fann_create_standard (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A39: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 48 bytes in 1 blocks are indirectly lost in loss record 5 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E49340: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49413: fann_create_sparse_array (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49B6F: fann_create_standard (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A39: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 648 bytes in 1 blocks are indirectly lost in loss record 6 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E45CDC: fann_compute_MSE (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E468BF: fann_train_epoch_irpropm (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E48DFA: fann_train_on_data (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A7D: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 3,888 bytes in 1 blocks are indirectly lost in loss record 7 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E45488: fann_allocate_neurons (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E494C1: fann_create_sparse_array (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49B6F: fann_create_standard (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A39: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 16,392 bytes in 1 blocks are indirectly lost in loss record 8 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E45536: fann_allocate_connections (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E495F3: fann_create_sparse_array (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49B6F: fann_create_standard (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A39: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 16,392 bytes in 1 blocks are indirectly lost in loss record 9 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E4642D: fann_clear_train_arrays (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4690A: fann_train_epoch_irpropm (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E48DFA: fann_train_on_data (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A7D: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 16,392 bytes in 1 blocks are indirectly lost in loss record 10 of 23
+==00:00:00:19.020 8064==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E4647C: fann_clear_train_arrays (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4690A: fann_train_epoch_irpropm (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E48DFA: fann_train_on_data (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A7D: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 16,392 bytes in 1 blocks are indirectly lost in loss record 11 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E463FF: fann_clear_train_arrays (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4690A: fann_train_epoch_irpropm (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E48DFA: fann_train_on_data (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A7D: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 32,496 bytes in 1 blocks are indirectly lost in loss record 12 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E4B940: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A1F: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 32,496 bytes in 1 blocks are indirectly lost in loss record 13 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E4B95D: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A1F: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 32,496 bytes in 1 blocks are indirectly lost in loss record 14 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E4B994: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A1F: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 32,496 bytes in 1 blocks are indirectly lost in loss record 15 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E4B940: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A91: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 32,496 bytes in 1 blocks are indirectly lost in loss record 16 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E4B95D: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A91: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 32,496 bytes in 1 blocks are indirectly lost in loss record 17 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E4B994: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A91: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 32,784 bytes in 1 blocks are indirectly lost in loss record 18 of 23
+==00:00:00:19.020 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E45552: fann_allocate_connections (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E495F3: fann_create_sparse_array (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E49B6F: fann_create_standard (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A39: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.020 8064== 
+==00:00:00:19.020 8064== 97,544 (56 direct, 97,488 indirect) bytes in 1 blocks are definitely lost in loss record 19 of 23
+==00:00:00:19.020 8064==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.020 8064==    by 0x4E4B910: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.020 8064==    by 0x400A91: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.021 8064== 
+==00:00:00:19.021 8064== 103,396 (392 direct, 103,004 indirect) bytes in 1 blocks are definitely lost in loss record 20 of 23
+==00:00:00:19.021 8064==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.021 8064==    by 0x4E49049: fann_allocate_structure (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x4E49413: fann_create_sparse_array (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x4E49B6F: fann_create_standard (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x400A39: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.021 8064== 
+==00:00:00:19.021 8064== 2,031,000 bytes in 1 blocks are possibly lost in loss record 21 of 23
+==00:00:00:19.021 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.021 8064==    by 0x4E4B97B: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x400A91: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.021 8064== 
+==00:00:00:19.021 8064== 2,031,000 bytes in 1 blocks are indirectly lost in loss record 22 of 23
+==00:00:00:19.021 8064==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.021 8064==    by 0x4E4B97B: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x400A1F: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.021 8064== 
+==00:00:00:19.021 8064== 2,128,544 (56 direct, 2,128,488 indirect) bytes in 1 blocks are definitely lost in loss record 23 of 23
+==00:00:00:19.021 8064==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==00:00:00:19.021 8064==    by 0x4E4B910: fann_create_train (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x4E4BC79: fann_read_train_from_fd (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x4E4BE07: fann_read_train_from_file (in /usr/local/lib/libfann.so.2.2.0)
+==00:00:00:19.021 8064==    by 0x400A1F: main (in /home/gregcusack/fann/examples/mushroom)
+==00:00:00:19.021 8064== 
+==00:00:00:19.021 8064== LEAK SUMMARY:
+==00:00:00:19.021 8064==    definitely lost: 504 bytes in 3 blocks
+==00:00:00:19.021 8064==    indirectly lost: 2,328,980 bytes in 18 blocks
+==00:00:00:19.021 8064==      possibly lost: 2,031,000 bytes in 1 blocks
+==00:00:00:19.021 8064==    still reachable: 8 bytes in 1 blocks
+==00:00:00:19.021 8064==         suppressed: 0 bytes in 0 blocks
+==00:00:00:19.021 8064== 
+==00:00:00:19.021 8064== For counts of detected and suppressed errors, rerun with: -v
+==00:00:00:19.021 8064== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)

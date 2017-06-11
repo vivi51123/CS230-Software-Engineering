@@ -38,7 +38,7 @@ private:
 steamTrain::steamTrain()
 {
 	cout << "allocating 1 steamtrain" << endl;
-	fuel = new int[1];
+	fuel = new int[20];
 }
 
 steamTrain::~steamTrain()
@@ -60,7 +60,7 @@ private:
 electricTrain::electricTrain()
 {
 	cout << "allocating 1 electricTrain" << endl;
-	power = new int[1];
+	power = new int[20];
 }
 
 electricTrain::~electricTrain()
@@ -80,10 +80,10 @@ void electricTrain::powerOn()
 int main(){
         cout << "Leak 14 test, a base class pointer is assigned to a derived class, the base class destructor is then called instead of the derived class destructor" << endl;
         cout << "Expected output:" << endl;
-        cout << "definitely lost: 100  bytes in 1 blocks" << endl;
+        cout << "definitely lost: 8 bytes in 1 blocks" << endl;
         cout << "indirectly lost: 0 bytes in 0 blocks" << endl;
         cout << "  possibly lost: 0 bytes in 0 blocks" << endl;
-        cout << "still reachable: 100 bytes in 1 blocks"<< endl;
+        cout << "still reachable: 8 bytes in 1 blocks"<< endl;
         cout << "     suppressed: 0 bytes in 0 blocks" << endl;
 
         auto start = chrono::high_resolution_clock::now();
