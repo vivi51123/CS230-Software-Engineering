@@ -1,0 +1,78 @@
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak1
+Leak 1 test, memory is allocated and not released before the program ends
+Expected output:
+definitely lost: 100 bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 12403ns
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak2
+Leak 2 test: A pointer is assigned to one memory location and is then redirected without releasing the memory block. The second memory block is deleted
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 20643ns
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak5
+Leak 5 test: Testing pointer to pointer memory allocation
+Char pointers require 4 bytes for BBB architecture therefore 8 bytes are definitely lost
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 124 bytes in 2 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 14676ns
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak9
+Leak 9 test: Type 9 - Testing  pointer to interior pointer memory allocation where the first pointer is reallocated
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 124 bytes in 2 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 19825ns
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak10
+Leak 1 test, memory is allocated and not released before the program ends
+Expected output:
+definitely lost: 8 bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 0 bytes in 0 blocks
+     suppressed: 0 bytes in 0 blocks
+Winner score <= Loser score.  ERROR: 99
+Runtime: 49148ns
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak12_7
+Leak 12 test, a static global variable is allocated to a block of memory and the reallocated before deallocation of the original block
+Expected output:
+definitely lost: 18  bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 40 bytes in 1 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 28558ns
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak13_8
+Leak 13 test, a static local variable is allocated to a block of memory and the reallocated before deallocation of the original block
+Expected output:
+definitely lost: 100  bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 100 bytes in 1 blocks
+     suppressed: 0 bytes in 0 blocks
+Runtime: 18702ns
+Zhengshuangs-MacBook-Pro:Cpp_MemLeak_Tests Ryan$ ./leak14_9
+Leak 14 test, a base class pointer is assigned to a derived class, the base class destructor is then called instead of the derived class destructor
+Expected output:
+definitely lost: 100  bytes in 1 blocks
+indirectly lost: 0 bytes in 0 blocks
+  possibly lost: 0 bytes in 0 blocks
+still reachable: 100 bytes in 1 blocks
+     suppressed: 0 bytes in 0 blocks
+allocating 1 steamtrain
+allocating 1 electricTrain
+Train destructor called
+Train destructor called
+Runtime: 49412ns
