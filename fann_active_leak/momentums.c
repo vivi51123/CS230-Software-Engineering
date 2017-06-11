@@ -53,9 +53,6 @@ int main()
 	    	p[0] = 10;
 	    	printf("val at 0: %d\n", p[0]);
 	}
-	int *p = (int *)malloc(sizeof(int)*10);
-	p[0] = 10;
-	printf("val at 0: %d\n", p[0]);
 	
 	fann_destroy_train(train_data);
 	fann_destroy_train(test_data);
