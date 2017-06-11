@@ -1,0 +1,120 @@
+==2301== Memcheck, a memory error detector
+==2301== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2301== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==2301== Command: ./robot
+==2301== Parent PID: 987
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F6B66: vfprintf (vfprintf.c:1481)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F6B89: vfprintf (vfprintf.c:1488)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F6B99: vfprintf (vfprintf.c:1495)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F6BAA: __libc_use_alloca (allocalim.h:28)
+==2301==    by 0x40F6BAA: vfprintf (vfprintf.c:1500)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40FA06B: __libc_use_alloca (allocalim.h:28)
+==2301==    by 0x40FA06B: vfprintf (vfprintf.c:1500)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x4027208: malloc (vg_replace_malloc.c:299)
+==2301==    by 0x40FA079: vfprintf (vfprintf.c:1504)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F8DFF: vfprintf (vfprintf.c:1974)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F8E59: vfprintf (vfprintf.c:1999)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F8E68: __libc_use_alloca (allocalim.h:28)
+==2301==    by 0x40F8E68: vfprintf (vfprintf.c:2002)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F914F: __libc_use_alloca (allocalim.h:28)
+==2301==    by 0x40F914F: vfprintf (vfprintf.c:2002)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x4027208: malloc (vg_replace_malloc.c:299)
+==2301==    by 0x40F915D: vfprintf (vfprintf.c:2009)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F8502: printf_unknown (vfprintf.c:2148)
+==2301==    by 0x40F8502: vfprintf (vfprintf.c:2076)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Use of uninitialised value of size 4
+==2301==    at 0x40F5D64: _itoa_word (_itoa.c:179)
+==2301==    by 0x40FB2F2: printf_unknown (vfprintf.c:2150)
+==2301==    by 0x40FB2F2: vfprintf (vfprintf.c:2076)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== Conditional jump or move depends on uninitialised value(s)
+==2301==    at 0x40F5D6E: _itoa_word (_itoa.c:179)
+==2301==    by 0x40FB2F2: printf_unknown (vfprintf.c:2150)
+==2301==    by 0x40FB2F2: vfprintf (vfprintf.c:2076)
+==2301==    by 0x41009C5: printf (printf.c:33)
+==2301==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2301==    by 0x80488CC: main (robot.c:78)
+==2301== 
+==2301== 
+==2301== HEAP SUMMARY:
+==2301==     in use at exit: 23,760 bytes in 594 blocks
+==2301==   total heap usage: 621 allocs, 27 frees, 134,677,084 bytes allocated
+==2301== 
+==2301== 23,760 bytes in 594 blocks are definitely lost in loss record 1 of 1
+==2301==    at 0x4027267: malloc (vg_replace_malloc.c:299)
+==2301==    by 0x8048840: main (robot.c:59)
+==2301== 
+==2301== LEAK SUMMARY:
+==2301==    definitely lost: 23,760 bytes in 594 blocks
+==2301==    indirectly lost: 0 bytes in 0 blocks
+==2301==      possibly lost: 0 bytes in 0 blocks
+==2301==    still reachable: 0 bytes in 0 blocks
+==2301==         suppressed: 0 bytes in 0 blocks
+==2301== 
+==2301== For counts of detected and suppressed errors, rerun with: -v
+==2301== Use --track-origins=yes to see where uninitialised values come from
+==2301== ERROR SUMMARY: 29 errors from 15 contexts (suppressed: 0 from 0)
