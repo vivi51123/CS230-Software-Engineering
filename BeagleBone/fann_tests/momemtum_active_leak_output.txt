@@ -1,0 +1,28 @@
+==20079== Memcheck, a memory error detector
+==20079== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==20079== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==20079== Command: ./momentums
+==20079== Parent PID: 3953
+==20079== 
+==20079== 
+==20079== HEAP SUMMARY:
+==20079==     in use at exit: 284 bytes in 8 blocks
+==20079==   total heap usage: 105 allocs, 97 frees, 693,272 bytes allocated
+==20079== 
+==20079== 4 bytes in 1 blocks are still reachable in loss record 1 of 2
+==20079==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==20079==    by 0x4A17113: ??? (in /usr/lib/arm-linux-gnueabihf/libgomp.so.1.0.0)
+==20079== 
+==20079== 280 bytes in 7 blocks are definitely lost in loss record 2 of 2
+==20079==    at 0x483D4E4: malloc (vg_replace_malloc.c:299)
+==20079==    by 0x107BD: main (in /root/fann/examples/momentums)
+==20079== 
+==20079== LEAK SUMMARY:
+==20079==    definitely lost: 280 bytes in 7 blocks
+==20079==    indirectly lost: 0 bytes in 0 blocks
+==20079==      possibly lost: 0 bytes in 0 blocks
+==20079==    still reachable: 4 bytes in 1 blocks
+==20079==         suppressed: 0 bytes in 0 blocks
+==20079== 
+==20079== For counts of detected and suppressed errors, rerun with: -v
+==20079== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
