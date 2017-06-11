@@ -1,0 +1,120 @@
+==2212== Memcheck, a memory error detector
+==2212== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2212== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==2212== Command: ./momentums
+==2212== Parent PID: 987
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F6B66: vfprintf (vfprintf.c:1481)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F6B89: vfprintf (vfprintf.c:1488)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F6B99: vfprintf (vfprintf.c:1495)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F6BAA: __libc_use_alloca (allocalim.h:28)
+==2212==    by 0x40F6BAA: vfprintf (vfprintf.c:1500)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40FA06B: __libc_use_alloca (allocalim.h:28)
+==2212==    by 0x40FA06B: vfprintf (vfprintf.c:1500)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x4027208: malloc (vg_replace_malloc.c:299)
+==2212==    by 0x40FA079: vfprintf (vfprintf.c:1504)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F8DFF: vfprintf (vfprintf.c:1974)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F8E59: vfprintf (vfprintf.c:1999)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F8E68: __libc_use_alloca (allocalim.h:28)
+==2212==    by 0x40F8E68: vfprintf (vfprintf.c:2002)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F914F: __libc_use_alloca (allocalim.h:28)
+==2212==    by 0x40F914F: vfprintf (vfprintf.c:2002)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x4027208: malloc (vg_replace_malloc.c:299)
+==2212==    by 0x40F915D: vfprintf (vfprintf.c:2009)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F8502: printf_unknown (vfprintf.c:2148)
+==2212==    by 0x40F8502: vfprintf (vfprintf.c:2076)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Use of uninitialised value of size 4
+==2212==    at 0x40F5D64: _itoa_word (_itoa.c:179)
+==2212==    by 0x40FB2F2: printf_unknown (vfprintf.c:2150)
+==2212==    by 0x40FB2F2: vfprintf (vfprintf.c:2076)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== Conditional jump or move depends on uninitialised value(s)
+==2212==    at 0x40F5D6E: _itoa_word (_itoa.c:179)
+==2212==    by 0x40FB2F2: printf_unknown (vfprintf.c:2150)
+==2212==    by 0x40FB2F2: vfprintf (vfprintf.c:2076)
+==2212==    by 0x41009C5: printf (printf.c:33)
+==2212==    by 0x40376DC: fann_destroy (in /home/root/FANN-2.2.0-Source 2/src/libfann.so.2.2.0)
+==2212==    by 0x804872F: main (momentums.c:51)
+==2212== 
+==2212== 
+==2212== HEAP SUMMARY:
+==2212==     in use at exit: 280 bytes in 7 blocks
+==2212==   total heap usage: 117 allocs, 110 frees, 1,749,223,612 bytes allocated
+==2212== 
+==2212== 280 bytes in 7 blocks are definitely lost in loss record 1 of 1
+==2212==    at 0x4027267: malloc (vg_replace_malloc.c:299)
+==2212==    by 0x804873B: main (momentums.c:52)
+==2212== 
+==2212== LEAK SUMMARY:
+==2212==    definitely lost: 280 bytes in 7 blocks
+==2212==    indirectly lost: 0 bytes in 0 blocks
+==2212==      possibly lost: 0 bytes in 0 blocks
+==2212==    still reachable: 0 bytes in 0 blocks
+==2212==         suppressed: 0 bytes in 0 blocks
+==2212== 
+==2212== For counts of detected and suppressed errors, rerun with: -v
+==2212== Use --track-origins=yes to see where uninitialised values come from
+==2212== ERROR SUMMARY: 209 errors from 15 contexts (suppressed: 0 from 0)
